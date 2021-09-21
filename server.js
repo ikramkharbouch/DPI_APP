@@ -1,4 +1,3 @@
-
 const express = require('express')
 const app = express()
 var route = require('./routes/route');
@@ -20,7 +19,7 @@ mongoose.connect(
 );
 
 // ...
-app.use('/route', route);
+app.use('/patient', route);
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
