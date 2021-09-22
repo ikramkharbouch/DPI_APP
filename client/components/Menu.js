@@ -15,7 +15,7 @@ const Menu = ({ showMenu }) => {
                 <button className=" mr-4 text-blue-400 font-medium">S'inscrire</button>
                 <button className="bg-blue-500 px-5 py-3 rounded-md text-white font-bold">S'identifier</button>
             </div>
-            <FontAwesomeIcon icon={faBars} color="gray" onClick={showMenu} size="lg" />
+            <FontAwesomeIcon icon={faBars} color="gray" onClick={showMenu} size="lg" className='block lg:hidden' />
         </div>
     </>);
 }
