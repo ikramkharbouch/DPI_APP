@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Input from './Input'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 const ModalBox = ({ classnames }) => {
 
@@ -11,13 +13,34 @@ const ModalBox = ({ classnames }) => {
         const Keycode = e.which
         if (Keycode === 13) {
             setTag(e.target.value)
-            setTags([...Tags, Tag])
-            setTagsNumber(tagsNumber + 1)
+            if (!Tags.includes(Tag)) {
+                setTags([...Tags, Tag])
+                setTagsNumber(tagsNumber + 1)
+            }
         }
     }
 
     const ChangeHandler = (e) => {
-        setTag(e.target.value);
+        setTag(e.target.value)
+    }
+
+    const handleCloseTag = (e) => {
+        e.preventDefault()
+        console.log("Tag closed")
+    }
+
+    const SubmitHandler = (e) => {
+        e.preventDefault();
+        if (e.which === 13) {
+            console.log("I won't handle the form")
+        }
+        else {
+            console.log("It will handle the form")
+        }
+    }
+
+    const removeTag = () => {
+        console.log("We should remove the tag in here")
     }
 
 
@@ -26,7 +49,7 @@ const ModalBox = ({ classnames }) => {
         <div className={`${classnames} text-3xl text-center bg-white h-3/6 w-5/6 z-10 rounded mx-auto shadow-2xl absolute ml-auto mr-auto left-0 right-0 mt-14`}>
             <h1 className="text-gray-600 text-xl mt-10 font-bold">Add patient</h1>
             <div className="mx-auto text-center">
-                <form className="flex flex-col flex-wrap mx-auto">
+                <form className="flex flex-col flex-wrap mx-auto" onSubmit={SubmitHandler} >
                     <div className="px-10 flex gap-2 lg:gap-10 mx-auto pt-10 w-full">
                         <Input type="text" label="First Name" placeholder="Ikram" classnames="" />
                         <Input type="text" label="Middle Name" placeholder="Aicha" classnames="" />
@@ -91,7 +114,7 @@ const ModalBox = ({ classnames }) => {
                             <label className="text-xs font-bold text-left text-blue-500">Medical Antecedents</label>
                             <div className="input border flex items-center w-full rounded h-10 lg:h-16 self-end mt-1">
                                 <ul className="text-sm flex flex-wrap">
-                                    {Tags.map((tag) => <li className="bg-green-100 py-1 px-4 rounded-full border text-green-400 font-bold border-green-400 ml-2">#{tag}</li>)}
+                                    {Tags.map((tag) => <div className="flex"><li key={tag} className="bg-green-100 py-1 px-6 rounded-full border text-green-400 font-bold border-green-400 ml-2">#{tag}<FontAwesomeIcon icon={faTimes} color="gray" onClick={removeTag} size="md" className='ml-5' /></li></div>)}
                                 </ul>
                                 {(tagsNumber < 3) && <input type="text" placeholder="Enter here..." className="text-sm ml-5" value={Tag} onChange={ChangeHandler} onKeyPress={KeyPressHandler} />}
                             </div>
