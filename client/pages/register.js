@@ -38,7 +38,7 @@ const Register = () => {
                         <input type="password" className="py-2 mt-5 lg:py-5 rounded border lg:border-0" placeholder="Mot de passe" />
                         <input type="password" className="py-2 mt-5 lg:py-5 rounded border lg:border-0" placeholder="Confirmez votre mot de passe" />
 
-                        <button className="mt-5 font-medium text-blue-500 justify-self-end">Avez vous déjà un compte ?</button>
+                        <button className="text-xs lg:text-base mt-5 font-medium text-blue-500 justify-self-end">Avez vous déjà un compte ?</button>
 
                         <input className="min-w-full lg:px-28 py-2 lg:py-5 rounded bg-blue-500 mt-14 font-bold text-white" type="submit" value="S'inscrire" />
                     </form>

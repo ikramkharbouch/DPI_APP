@@ -24,3 +24,10 @@ input::placeholder {
 .gap {
   gap: 5rem;
 }
+
+@media only screen and (max-width: 600px) {
+  input::placeholder {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Menu from '../components/Menu'
 import Image from 'next/image'
 import medicalRecord from '../public/dossier-medical.svg'
+import Footer from '../components/Footer'
 
 const Login = () => {
 
@@ -36,13 +37,14 @@ const Login = () => {
                         <input type="text" className="py-2 mt-5 lg:py-5 rounded border lg:border-0" placeholder="E-mail" />
                         <input type="password" className="py-2 mt-5 lg:py-5 rounded border lg:border-0" placeholder="Mot de passe" />
 
-                        <button className="mt-5 font-medium text-blue-500 justify-self-end">Avez vous déjà un compte ?</button>
+                        <button className="text-xs lg:text-base mt-5 font-medium text-blue-500 justify-self-end">Avez vous déjà un compte ?</button>
 
                         <input className="min-w-full lg:px-28 py-2 lg:py-5 rounded bg-blue-500 mt-14 font-bold text-white" type="submit" value="S'identifier" />
                     </form>
                 </div>
             </div>
         </div>
+        <Footer />
 
     </>);
 }
