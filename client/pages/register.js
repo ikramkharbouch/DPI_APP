@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Menu from '../components/Menu'
 import Image from 'next/image'
 import medicalRecord from '../public/dossier-medical.svg'
+import Footer from '../components/Footer'
 
 const Register = () => {
 
@@ -45,6 +46,7 @@ const Register = () => {
                 </div>
             </div>
         </div>
+        <Footer />
 
     </>);
 }
