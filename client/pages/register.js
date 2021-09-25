@@ -3,6 +3,7 @@ import Menu from '../components/Menu'
 import Image from 'next/image'
 import medicalRecord from '../public/dossier-medical.svg'
 import Footer from '../components/Footer'
+import Card from '../components/Card'
 
 const Register = () => {
 
@@ -12,7 +13,7 @@ const Register = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [repeatPassword, setRepeatPassword] = useState("")
-    
+    const [errorMsg, setErrorMsg] = useState("Invalid Credentials")    
 
     const [hiddenMenu, sethiddenMenu] = useState("hidden")
 
@@ -32,6 +33,11 @@ const Register = () => {
             username, email, password, repeatPassword
         }
 
+        setUsername("")
+        setEmail("")
+        setPassword("")
+        setRepeatPassword("")
+
         const res = await fetch('http://localhost:8000/user/register', {
             method: 'POST',
             headers: {
@@ -42,6 +48,14 @@ const Register = () => {
         })
 
         const formattedRes = await res.json()
+        if (res.status !== 200)
+        {
+            setErrorMsg(formattedRes.message)
+        }
+
+        console.log(res.status)
+
+        // Check the status and make a card for the user to update him
 
         console.log(formattedRes)
     }
@@ -58,11 +72,14 @@ const Register = () => {
                     <li className="hover:bg-gray-700 bg-blue-500 mx-auto w-1/3 py-4 rounded mt-4">S'identifier</li>
                 </ul>
             </div>
-            <div className="w-5/6 lg:w-11/12 h-3/5 lg:h-3/4 bg-white mx-auto mt-4 lg:mt-20 rounded-lg flex flex-col lg:flex-row justify-between items-center lg:px-32 gap">
-                <div className="hidden lg:block w-1/2"><Image src={medicalRecord} width={1000}
+            
+            <div className="w-5/6 lg:w-11/12 h-4/5 lg:h-3/4 bg-white mx-auto mt-4 lg:mt-20 rounded-lg flex flex-col lg:flex-row justify-between items-center lg:px-32">
+                
+                <div className="hidden md:hidden lg:block w-1/2"><Image src={medicalRecord} width={1000}
                     height={1000} layout="intrinsic" alt="Picture of the medical record" /></div>
-                <div className="w-full lg:w-3/5 h-5/6 lg:h-4/6 lg:bg-gray-200 rounded-lg mx-auto text-center lg:mt-10">
-                    <form className="max-w-full grid mt-20 lg:mt-11 justify-items-stretch w-3/4 mx-auto text-center p-0 m-0" onSubmit={handleForm}>
+                    {errorMsg && <Card Message={errorMsg} />}
+                <div className="w-full lg:w-3/5 mt-10 h-5/6 lg:h-4/6 lg:bg-gray-200 rounded-lg mx-auto text-center lg:mt-10">
+                    <form className="max-w-full grid lg:mt-11 justify-items-stretch w-3/4 mx-auto text-center p-0 m-0" onSubmit={handleForm}>
 
                         <input type="text" className="py-2 pl-5 mt-5 lg:py-5 rounded border lg:border-0" placeholder="Nom d'utilisateur" value={username} onChange={(e) => setUsername(e.target.value)} />
                         <input type="text" className="py-2 mt-5 pl-5 lg:py-5 rounded border lg:border-0" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)}/>
