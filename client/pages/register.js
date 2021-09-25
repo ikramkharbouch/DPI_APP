@@ -67,13 +67,10 @@ const Register = () => {
     return (<>
         <div className="h-screen">
             <Menu showMenu={showMenu} />
-            <div id="menu-items" className={`${hiddenMenu} bg-gray-400 text-white font-medium w-5/6 mt-4 h-1/3 opacity opacity-50 rounded-lg mx-auto text-center my-auto`}>
+            <div id="menu-items" className={`${hiddenMenu} border-2 border-blue-400 text-white font-medium w-5/6 mt-4 h-48 opacity  rounded-lg mx-auto text-center my-auto`}>
                 <ul className="p-2">
-                    <li className="hover:bg-gray-700 bg-blue-500 mx-auto w-1/3 py-4 rounded mt-10">Accueil</li>
-                    <li className="hover:bg-gray-700 bg-blue-500 mx-auto w-1/3 py-4 rounded mt-4">A propos de nous</li>
-                    <li className="hover:bg-gray-700 bg-blue-500 mx-auto w-1/3 py-4 rounded mt-4">Aide</li>
-                    <li className="hover:bg-gray-700 bg-blue-500 mx-auto w-1/3 py-4 rounded mt-4">S'inscrire</li>
-                    <li className="hover:bg-gray-700 bg-blue-500 mx-auto w-1/3 py-4 rounded mt-4">S'identifier</li>
+                    <li className="hover:bg-gray-700 bg-blue-500 mx-auto w-1/3 py-4 rounded mt-4 cursor-pointer">S'inscrire</li>
+                    <li className="hover:bg-gray-700 bg-blue-500 mx-auto w-1/3 py-4 rounded mt-4 cursor-pointer">S'identifier</li>
                 </ul>
             </div>
             
@@ -91,7 +88,7 @@ const Register = () => {
                         <input type="password" className="py-2 mt-5 pl-5 lg:py-5 rounded border lg:border-0" placeholder="Mot de passe" value={password} onChange={(e) => setPassword(e.target.value)}/>
                         <input type="password" className="py-2 mt-5 pl-5 lg:py-5 rounded border lg:border-0" placeholder="Confirmez votre mot de passe" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)}/>
 
-                        <button className="text-xs md:text-base lg:text-base mt-5 font-medium text-blue-500 justify-self-end">Avez vous déjà un compte ?</button>
+                        <button className="text-sm md:text-base lg:text-base mt-5 font-medium text-blue-500 justify-self-end">Avez vous déjà un compte ?</button>
 
                         <input className="min-w-full lg:px-28 py-2 lg:py-5 rounded bg-blue-500 mt-14 font-bold text-white cursor-pointer" type="submit" value="S'inscrire" />
                     </form>

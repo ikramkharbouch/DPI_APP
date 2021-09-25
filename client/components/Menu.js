@@ -16,7 +16,7 @@ const Menu = ({ showMenu }) => {
                 <Link href="/register"><a><button className="mr-4 text-blue-400 font-medium">S'inscrire</button></a></Link>
                 <Link href="/login"><a><button className="bg-blue-500 px-5 py-3 rounded-md text-white font-bold">S'identifier</button></a></Link>
             </div>
-            <FontAwesomeIcon icon={faBars} color="gray" onClick={showMenu} size="lg" className='block lg:hidden mr-10 md:mr-20 lg:mr-20' />
+            <FontAwesomeIcon icon={faBars} color="gray" onClick={showMenu} size="lg" className='block lg:hidden mr-10 md:mr-20 lg:mr-20 cursor-pointer' />
         </div>
     </>);
 }
