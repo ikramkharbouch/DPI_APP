@@ -1,14 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Menu from '../components/Menu'
 import Image from 'next/image'
 import medicalRecord from '../public/dossier-medical.svg'
 import Footer from '../components/Footer'
+import Card from '../components/Card'
+import { useRouter } from 'next/router'
+
+
+import withoutAuth from './auth/withoutAuth'
 
 const Login = () => {
 
     const [hiddenMenu, sethiddenMenu] = useState("hidden")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [errorMsg, setErrorMsg] = useState("")
+    const [successMsg, setSuccessMsg] = useState("")
+
+    // Set router
+    const router = useRouter()
 
     const showMenu = () => {
         console.log("The menu icon was clicked")
@@ -38,6 +48,13 @@ const Login = () => {
 
         const formattedRes = await res.json()
 
+        if (res.status !== 200) {
+            setErrorMsg(formattedRes.message)
+        } else if (res.status === 200)
+        {
+            router.replace('/home')
+        }
+
         console.log(formattedRes)
 
     }
@@ -54,6 +71,8 @@ const Login = () => {
             <div className="w-5/6 lg:w-11/12 h-3/5 lg:h-3/4 bg-white mx-auto mt-4 lg:mt-20 rounded-lg flex flex-col lg:flex-row justify-between items-center lg:px-32 gap">
                 <div className="hidden lg:block w-1/2"><Image src={medicalRecord} width={1000}
                     height={1000} layout="intrinsic" alt="Picture of the medical record" /></div>
+                    {errorMsg && <Card Message={errorMsg} classnames="bg-red-100 text-red-400 border-red-300" iconColor="red"/>}
+                    {successMsg && <Card Message={successMsg} classnames="bg-green-100 text-green-400 border-green-300" iconColor="green"/>}
                 <div className="w-full lg:w-3/5 h-5/6 lg:h-4/6 lg:bg-gray-200 rounded-lg mx-auto text-center lg:mt-10">
                     <form className="max-w-full grid mt-20 lg:mt-11 justify-items-stretch w-3/4 mx-auto text-center p-0 m-0" onSubmit={handleSubmit}>
 
@@ -72,4 +91,4 @@ const Login = () => {
     </>);
 }
 
-export default Login;
+export default withoutAuth(Login);

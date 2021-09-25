@@ -2,12 +2,17 @@ import LoggedinMenu from '../components/LoggedinMenu'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faPlus, faCalendar } from '@fortawesome/free-solid-svg-icons'
 import ModalBox from '../components/ModalBox'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import withAuth from './auth/withAuth'
 
-const Home = () => {
+
+const Home = ({cookies}) => {
 
     const [hiddenModal, setHiddenModal] = useState("hidden")
 
+    useEffect(() => {
+        localStorage.setItem('jwt', cookies['jwt'])
+    }, [])
 
     const doSomething = () => {
         setHiddenModal("block");
@@ -41,4 +46,15 @@ const Home = () => {
     </>);
 }
 
-export default Home;
+export async function getServerSideProps(context) {
+
+    const { req, res } = context
+
+    const {cookies} = req
+
+    return {
+      props: {cookies}, // will be passed to the page component as props
+    }
+  }
+
+export default withAuth(Home);

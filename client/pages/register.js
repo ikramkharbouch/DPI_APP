@@ -5,6 +5,8 @@ import medicalRecord from '../public/dossier-medical.svg'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
 
+import withoutAuth from './auth/withoutAuth'
+
 const Register = () => {
 
     // The state variables
@@ -100,4 +102,4 @@ const Register = () => {
     </>);
 }
 
-export default Register;
+export default withoutAuth(Register);
