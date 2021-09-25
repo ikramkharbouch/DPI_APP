@@ -13,12 +13,8 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    },
-    repeatPassword: {
-        type: String,
-        required: true
     }
 })
 
 
-module.exports = mongoose.module('User', UserSchema)
+module.exports = mongoose.model('User', UserSchema)

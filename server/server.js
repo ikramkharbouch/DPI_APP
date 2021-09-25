@@ -1,8 +1,9 @@
 const express = require('express')
 const app = express()
-var route = require('./routes/route');
+var patient = require('./routes/patient')
+var user = require('./routes/user')
 var Test = require('./model/Test')
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
 require("dotenv").config();
 
@@ -19,7 +20,8 @@ mongoose.connect(
 );
 
 // ...
-app.use('/patient', route);
+app.use('/patient', patient)
+app.use('/user', user)
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
