@@ -13,7 +13,8 @@ const Register = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [repeatPassword, setRepeatPassword] = useState("")
-    const [errorMsg, setErrorMsg] = useState("Invalid Credentials")    
+    const [errorMsg, setErrorMsg] = useState("")
+    const [successMsg, setSuccessMsg] = useState("")  
 
     const [hiddenMenu, sethiddenMenu] = useState("hidden")
 
@@ -52,6 +53,9 @@ const Register = () => {
         {
             setErrorMsg(formattedRes.message)
         }
+        else if (res.status === 200) {
+            setSuccessMsg(formattedRes.message)
+        }
 
         console.log(res.status)
 
@@ -77,7 +81,8 @@ const Register = () => {
                 
                 <div className="hidden md:hidden lg:block w-1/2"><Image src={medicalRecord} width={1000}
                     height={1000} layout="intrinsic" alt="Picture of the medical record" /></div>
-                    {errorMsg && <Card Message={errorMsg} />}
+                    {errorMsg && <Card Message={errorMsg} classnames="bg-red-100 text-red-400 border-red-300" iconColor="red"/>}
+                    {successMsg && <Card Message={successMsg} classnames="bg-green-100 text-green-400 border-green-300" iconColor="green"/>}
                 <div className="w-full lg:w-3/5 mt-10 h-5/6 lg:h-4/6 lg:bg-gray-200 rounded-lg mx-auto text-center lg:mt-10">
                     <form className="max-w-full grid lg:mt-11 justify-items-stretch w-3/4 mx-auto text-center p-0 m-0" onSubmit={handleForm}>
 
@@ -88,7 +93,7 @@ const Register = () => {
 
                         <button className="text-xs md:text-base lg:text-base mt-5 font-medium text-blue-500 justify-self-end">Avez vous déjà un compte ?</button>
 
-                        <input className="min-w-full lg:px-28 py-2 lg:py-5 rounded bg-blue-500 mt-14 font-bold text-white" type="submit" value="S'inscrire" />
+                        <input className="min-w-full lg:px-28 py-2 lg:py-5 rounded bg-blue-500 mt-14 font-bold text-white cursor-pointer" type="submit" value="S'inscrire" />
                     </form>
                 </div>
             </div>
