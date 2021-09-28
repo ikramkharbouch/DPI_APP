@@ -6,10 +6,9 @@ import Footer from '../components/Footer'
 import Card from '../components/Card'
 import { useRouter } from 'next/router'
 
-
 import withoutAuth from './auth/withoutAuth'
 
-const Login = () => {
+const Login = ({cookies}) => {
 
     const [hiddenMenu, sethiddenMenu] = useState("hidden")
     const [username, setUsername] = useState("")
@@ -19,6 +18,11 @@ const Login = () => {
 
     // Set router
     const router = useRouter()
+
+    useEffect(() => {
+        console.log(cookies['jwt'])
+        localStorage.setItem('jwt', cookies['jwt'])
+    }, [])
 
     const showMenu = () => {
         console.log("The menu icon was clicked")
@@ -52,7 +56,8 @@ const Login = () => {
             setErrorMsg(formattedRes.message)
         } else if (res.status === 200)
         {
-            router.replace('/home')
+            // router.reload()
+            // router.push('/home')
         }
 
         console.log(formattedRes)
@@ -90,5 +95,16 @@ const Login = () => {
 
     </>);
 }
+
+export async function getServerSideProps(context) {
+
+    const { req, res } = context
+
+    const {cookies} = req
+
+    return {
+      props: {cookies}, // will be passed to the page component as props
+    }
+  }
 
 export default withoutAuth(Login);

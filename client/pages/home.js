@@ -6,23 +6,31 @@ import { useState, useEffect } from 'react'
 import withAuth from './auth/withAuth'
 
 
-const Home = ({cookies}) => {
+const Home = () => {
 
     const [hiddenModal, setHiddenModal] = useState("hidden")
 
-    useEffect(() => {
-        localStorage.setItem('jwt', cookies['jwt'])
-    }, [])
-
     const doSomething = () => {
-        setHiddenModal("block");
+        if (hiddenModal === "hidden")
+            setHiddenModal("block")
+        else if (hiddenModal === "block")
+            setHiddenModal("hidden")
+        console.log(hiddenModal)
     }
 
+    const closeBox = () => {
+
+        if (hiddenModal === "block")
+            setHiddenModal("hidden")
+        else if (hiddenModal === "hidden")
+            setHiddenModal("block")
+        console.log(hiddenModal)
+    }
 
     return (<>
         <div className="h-screen mx-auto text-center relative">
             <LoggedinMenu />
-            <ModalBox classnames={hiddenModal} onClick={doSomething} />
+            <ModalBox classnames={hiddenModal} onClick={doSomething} closeBox={closeBox} />
             <div className="w-5/6 lg:w-11/12 h-3/5 lg:h-3/4 bg-white mx-auto mt-4 lg:mt-20 rounded-lg items-center lg:px-32 gap">
                 <div className="pt-10 w-11/12 flex mx-auto text-center justify-between items-center">
                     <form className="w-full ml-0">
@@ -45,16 +53,5 @@ const Home = ({cookies}) => {
 
     </>);
 }
-
-export async function getServerSideProps(context) {
-
-    const { req, res } = context
-
-    const {cookies} = req
-
-    return {
-      props: {cookies}, // will be passed to the page component as props
-    }
-  }
 
 export default withAuth(Home);

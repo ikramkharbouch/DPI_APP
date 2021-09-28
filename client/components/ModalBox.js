@@ -3,11 +3,12 @@ import Input from './Input'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
-const ModalBox = ({ classnames }) => {
+const ModalBox = ({ classnames, closeBox }) => {
 
     const [Tags, setTags] = useState([]);
     const [Tag, setTag] = useState("")
     const [tagsNumber, setTagsNumber] = useState(0)
+    const [block, setBlock] = useState("block")
 
     const KeyPressHandler = (e) => {
         const Keycode = e.which
@@ -45,8 +46,10 @@ const ModalBox = ({ classnames }) => {
 
 
     const [numberRegion, setNumberRegion] = useState('+212')
+
     return (<>
-        <div className={`${classnames} text-3xl text-center bg-white md:h-5/6 lg:h-3/6 w-5/6 z-10 rounded mx-auto shadow-2xl absolute ml-auto mr-auto left-0 right-0 mt-14`}>
+        <div className={`${classnames} text-3xl text-center bg-white h-4/5 md:h-5/6 lg:h-3/6 w-5/6 z-10 rounded mx-auto shadow-2xl absolute ml-auto mr-auto left-0 right-0 mt-14`}>
+            <FontAwesomeIcon icon={faTimes} color="red" onClick={closeBox} size="xs" className='cursor-pointer float-right mr-10 mt-5' />
             <h1 className="text-gray-600 text-xl mt-10 font-bold">Add patient</h1>
             <div className="mx-auto text-center">
                 <form className="flex flex-col flex-wrap mx-auto" onSubmit={SubmitHandler} >
