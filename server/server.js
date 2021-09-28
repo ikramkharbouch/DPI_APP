@@ -3,9 +3,15 @@ const app = express()
 var patient = require('./routes/patient')
 var user = require('./routes/user')
 var Test = require('./model/Test')
+var cors = require('cors')
 const mongoose = require("mongoose")
 
 require("dotenv").config();
+
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+}));
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());

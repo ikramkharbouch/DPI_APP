@@ -22,12 +22,17 @@ router.get('/', (req, res) => {
 
 router.post('/register', async (req, res) => {
 
+    console.log(req.body)
     const { username, email, password, repeatPassword } = req.body
 
     // data validation in here
 
     if (password !== repeatPassword) {
         return res.status(403).send({message: "The passwords are not matched"})
+    }
+
+    if (checkEmail = await User.findOne({ email: email})) {
+        return res.status(403).send({message: "The email already exists"})
     }
 
     // Making the salts to secure the password
@@ -49,9 +54,11 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     
-    const { email, password } = req.body
+    const { username, password } = req.body
 
-    const user = await User.findOne({ email: email })
+    console.log(req.body)
+
+    const user = await User.findOne({ username: username })
 
     if (!user) {
         return res.status(404).send({ message: 'User not found'})
