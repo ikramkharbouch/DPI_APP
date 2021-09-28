@@ -6,10 +6,11 @@ const withoutAuth = (WrappedComponent) => {
       if (typeof window !== "undefined") {
         const Router = useRouter();
   
+        
         const accessToken = localStorage.getItem("jwt");
   
         // If there is no access token we redirect to "/" page.
-        if (accessToken) {
+        if ("jwt" in localStorage) {
           Router.replace("/home");
           return null;
         }

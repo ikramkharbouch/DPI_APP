@@ -6,13 +6,16 @@ const withAuth = (WrappedComponent) => {
       if (typeof window !== "undefined") {
         const Router = useRouter();
   
-        const accessToken = localStorage.getItem("jwt");
+
+        const accessToken = localStorage.getItem("jwt")
         
         console.log("it is here", accessToken)
 
+        
+
         // If there is no access token we redirect to "/" page.
-        if (!accessToken) {
-          Router.replace("/login");
+        if (!("jwt" in localStorage)) {
+          Router.replace("/login")
           return null;
         }
   

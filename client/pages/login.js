@@ -20,8 +20,10 @@ const Login = ({cookies}) => {
     const router = useRouter()
 
     useEffect(() => {
-        console.log(cookies['jwt'])
-        localStorage.setItem('jwt', cookies['jwt'])
+        if (cookies['jwt']) {
+
+            localStorage.setItem('jwt', cookies['jwt'])
+        }
     }, [])
 
     const showMenu = () => {
@@ -56,8 +58,8 @@ const Login = ({cookies}) => {
             setErrorMsg(formattedRes.message)
         } else if (res.status === 200)
         {
-            // router.reload()
-            // router.push('/home')
+            router.reload()
+            router.push('/home')
         }
 
         console.log(formattedRes)
