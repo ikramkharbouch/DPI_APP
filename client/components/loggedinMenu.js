@@ -1,29 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 
-const LoggedinMenu = ({ showMenu }) => {
+
+const LoggedinMenu = ({ showMenu, Logout }) => {
 
     const router = useRouter()
 
-    const Logout = async () => {
-
-        console.log("logout here")
-        // To disconnect
-
-        const res = await fetch('http://localhost:8000/user/logout', {
-            method: 'POST',
-            credentials: 'include'
-        })
-
-        const formattedRes = await res.json()
-
-        console.log(formattedRes)
-        localStorage.removeItem('jwt')
-        router.push('/login')
-
-    }
 
     return (<>
         <div className="w-5/6 lg:w-11/12 bg-white h-20 mx-auto mt-20 rounded-lg flex justify-between items-center text-center">
