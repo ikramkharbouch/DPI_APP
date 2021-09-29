@@ -30,6 +30,10 @@ input[type="date"] {
   padding-left: 20px;
 }
 
+#phone-number::placeholder {
+  margin-left: 80px;
+}
+
 input[type="number"]::placeholder {
   color: #999;
   padding-left: 60px;

@@ -88,7 +88,7 @@ const Login = ({cookies}) => {
 
                         <button className="text-sm lg:text-base mt-5 font-medium text-blue-500 justify-self-end">Avez vous déjà un compte ?</button>
 
-                        <input className="min-w-full lg:px-28 py-2 lg:py-5 rounded bg-blue-500 mt-14 font-bold text-white" type="submit" value="S'identifier" />
+                        <input className="min-w-full lg:px-28 py-2 lg:py-5 rounded bg-blue-500 mt-14 font-bold text-white cursor-pointer" type="submit" value="S'identifier" />
                     </form>
                 </div>
             </div>
