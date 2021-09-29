@@ -67,11 +67,14 @@ const ModalBox = ({ classnames, closeBox }) => {
     }
 
     const removeTag = (e) => {
-        var poppedTag = e.target.parentElement.id
+        var Element = e.target.parentElement
+        var poppedTag = Element.id
 
         const newTags = Tags.filter((tag) => tag !== poppedTag)
 
-        console.log(newTags)
+        Element.remove()
+
+        setTags(newTags)
     }
 
 
