@@ -88,7 +88,7 @@ const Home = () => {
             <div className="w-5/6 lg:w-11/12 h-3/5 lg:h-3/4 bg-white mx-auto mt-4 lg:mt-20 rounded-lg items-center lg:px-32 gap">
                 <div className="pt-10 w-11/12 flex mx-auto text-center justify-between items-center">
                     <form className="w-full ml-0">
-                        <input type="text" placeholder="search" className="border w-5/6 lg:px-20 py-4 rounded-lg float-left" />
+                        <input type="text" placeholder="search" className="border w-5/6 lg:px-20 py-4 rounded-lg float-left pl-5" />
                         <FontAwesomeIcon icon={faSearch} color="gray" size="lg" className="relative right-16 md:right-24 lg:right-20 lg:mr-10 mt-5" />
                     </form>
                     <div className="mr-20 mx-auto lg:mx-0 hidden lg:flex">

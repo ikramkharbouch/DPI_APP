@@ -10,6 +10,20 @@ const ModalBox = ({ classnames, closeBox }) => {
     const [tagsNumber, setTagsNumber] = useState(0)
     const [block, setBlock] = useState("block")
 
+
+    // Inputs
+
+    const [firstName, setFirstName] = useState("")
+    const [middleName, setMiddleName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [birthDate, setBirthDate] = useState("")
+    const [MaritalStatus, setMaritalStatus] = useState("")
+    const [Nationality, setNationality] = useState("")
+    const [PhoneNumber, setPhoneNumber] = useState("")
+    const [BloodType, setBloodType] = useState("")
+    const [Vaccinated, setVaccinated] = useState(true)
+    const [medicalAntecedents, setMedicalAntecedents] = useState([])
+
     const KeyPressHandler = (e) => {
         const Keycode = e.which
         if (Keycode === 13) {
