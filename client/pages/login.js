@@ -75,13 +75,13 @@ const Login = ({cookies}) => {
                     <li className="hover:bg-gray-700 bg-blue-500 mx-auto py-4 rounded mt-4 w-full">S'identifier</li>
                 </ul>
             </div>
-            <div className="w-5/6 lg:w-11/12 h-3/5 lg:h-3/4 bg-white mx-auto mt-4 lg:mt-20 rounded-lg flex flex-col lg:flex-row justify-between items-center lg:px-32 gap">
-                <div className="hidden lg:block w-1/2"><Image src={medicalRecord} width={1000}
-                    height={1000} layout="intrinsic" alt="Picture of the medical record" /></div>
-                    {errorMsg && <Card Message={errorMsg} classnames="bg-red-100 text-red-400 border-red-300" iconColor="red"/>}
-                    {successMsg && <Card Message={successMsg} classnames="bg-green-100 text-green-400 border-green-300" iconColor="green"/>}
-                <div className="w-full lg:w-3/5 h-5/6 lg:h-4/6 lg:bg-gray-200 rounded-lg mx-auto text-center lg:mt-10">
-                    <form className="max-w-full grid mt-20 lg:mt-11 justify-items-stretch w-3/4 mx-auto text-center p-0 m-0" onSubmit={handleSubmit}>
+            <div className="w-5/6 lg:w-11/12 h-4/5 lg:h-4/5 bg-white mx-auto mt-4 lg:mt-20 rounded-lg flex flex-col items-center">
+                {errorMsg && <Card Message={errorMsg} classnames="bg-red-100 text-red-400 border-red-300" iconColor="red" />}
+                {successMsg && <Card Message={successMsg} classnames="bg-green-100 text-green-400 border-green-300" iconColor="green" />}
+                <div className="w-1/2 mx-auto text-center mt-10"><Image src={medicalRecord} width={200}
+                    height={200} layout="intrinsic" alt="Picture of the medical record" /></div>
+                <div className="mt-20 w-full lg:w-3/5 h-3/6 lg:h-2/4 lg:bg-gray-200 rounded-lg mx-auto text-center">
+                    <form className="max-w-full grid lg:mt-14 justify-items-stretch w-3/4 mx-auto text-center" onSubmit={handleSubmit}>
 
                         <input type="text" className="py-2 mt-5 pl-5 lg:py-5 rounded border lg:border-0" placeholder="Nom d'utilisateur" value={username} onChange={(e) => setUsername(e.target.value)} />
                         <input type="password" className="py-2 mt-5 pl-5 lg:py-5 rounded border lg:border-0" placeholder="Mot de passe" value={password} onChange={(e) => setPassword(e.target.value)} />

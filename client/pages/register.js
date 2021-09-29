@@ -76,10 +76,8 @@ const Register = () => {
             </div>
 
             <div className="w-5/6 lg:w-11/12 h-4/5 lg:h-4/5 bg-white mx-auto mt-4 lg:mt-20 rounded-lg flex flex-col items-center">
-                {/* <div>
-                    {errorMsg && <Card Message={errorMsg} classnames="bg-red-100 text-red-400 border-red-300" iconColor="red" />}
-                    {successMsg && <Card Message={successMsg} classnames="bg-green-100 text-green-400 border-green-300" iconColor="green" />}
-                </div> */}
+                {errorMsg && <Card Message={errorMsg} classnames="bg-red-100 text-red-400 border-red-300" iconColor="red" />}
+                {successMsg && <Card Message={successMsg} classnames="bg-green-100 text-green-400 border-green-300" iconColor="green" />}
                 <div className="w-1/2 mx-auto text-center mt-10"><Image src={medicalRecord} width={200}
                     height={200} layout="intrinsic" alt="Picture of the medical record" /></div>
                 <div className="mt-20 w-full lg:w-3/5 h-3/6 lg:h-2/4 lg:bg-gray-200 rounded-lg mx-auto text-center">
