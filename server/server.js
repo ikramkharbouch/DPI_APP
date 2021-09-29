@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 var patient = require('./routes/patient')
 var user = require('./routes/user')
+var appointment = require('./routes/appointment')
 var Test = require('./model/Test')
 var cors = require('cors')
 const mongoose = require("mongoose")
@@ -28,6 +29,7 @@ mongoose.connect(
 // ...
 app.use('/patient', patient)
 app.use('/user', user)
+app.use('/appointment', appointment)
 
 app.get('/', (req, res) => {
     res.send('Hello World!')

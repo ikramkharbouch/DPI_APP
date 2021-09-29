@@ -10,7 +10,6 @@ var AppointmentSchema = new mongoose.Schema({
         default: Date.now(),
         required: true
     }
-
 })
 
 
