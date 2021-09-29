@@ -6,32 +6,58 @@ import { useState } from 'react'
 const Calendar = ({ classnames, closeCalendar }) => {
 
     const [title, setTitle] = useState("")
+    const [day, setDay] = useState("")
     const [timing, setTiming] = useState("")
 
 
-    const SubmitHandler = (e) => {
+    const SubmitHandler = async (e) => {
+
         e.preventDefault()
 
-        // Fetch request in here
+        const data = {title, day, timing}
+
+        console.log(title)
+        console.log(day)
+        console.log(timing)
+
+        // Fetch the api in here
+
+        const res = await fetch('http://localhost:8000/appointment/add', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+            credentials: 'include',
+        })
+
+        const formattedRes = await res.json()
+
+        console.log(formattedRes)
 
     }
 
     return (<>
-        <div className={`${classnames} text-3xl text-center bg-white h-3/5 md:h-4/6 lg:h-3/6 w-5/6 z-10 rounded mx-auto shadow-2xl absolute ml-auto mr-auto left-0 right-0 mt-14`}>
+        <div className={`${classnames} text-3xl text-center bg-white h-3/4 md:h-4/6 lg:h-3/6 w-5/6 z-10 rounded mx-auto shadow-2xl absolute ml-auto mr-auto left-0 right-0 mt-14`}>
             <FontAwesomeIcon icon={faTimes} color="red" onClick={closeCalendar} size="xs" className='cursor-pointer float-right mr-10 mt-5' />
             <h1 className="text-gray-600 text-xl mt-10 font-bold">Set Appointment</h1>
-            <div className="mx-auto text-center">
-                <form className="flex flex-col flex-wrap mx-auto" onSubmit={SubmitHandler}>
+            <div className="mx-auto text-center w-full">
+                <form className="flex flex-col flex-wrap mx-auto w-full" onSubmit={SubmitHandler}>
                     <div className="px-10 flex flex-col gap-6 lg:gap-10 mx-auto pt-10 w-full" >
-                    <div>
+                        <div className="w-full ">
                             <label className="text-xs text-blue-500 absolute font-bold">Appointment's title</label>
-                            <input type="text" placeholder="Some random title" className="pl-5 py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 w-full" />
+                            <input type="text" placeholder="Some random title" className="pl-5 py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={title} onChange={(e) => setTitle(e.target.value)} />
                         </div>
-                        <div>
+                        <div className="w-full">
+                            <label className="text-xs text-blue-500 absolute font-bold">Day</label>
+                            <input type="date" placeholder="Ikram" className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3 pl-5" value={day} onChange={(e) => setDay(e.target.value)}/>
+                        </div>
+                        <div className="w-full">
                             <label className="text-xs text-blue-500 absolute font-bold">Timing</label>
-                            <input type="time" placeholder="Ikram" className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 w-full pl-5" />
+                            <input type="time" placeholder="Ikram" className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3 pl-5" value={timing} onChange={(e) => setTiming(e.target.value)}/>
                         </div>
-                    <input type="submit" className="w-3/6 md:w-2/6 lg:w-1/6 bg-green-400 text-sm lg:text-lg py-2 lg:py-4 text-white font-bold rounded mt-5 cursor-pointer" />
+                        <input type="submit" className="bg-green-400 text-sm lg:text-lg py-2 lg:py-4 text-white font-bold rounded mt-5 cursor-pointer w-full md:w-1/3 lg:w-1/3 mx-auto" />
                     </div>
                 </form>
             </div>

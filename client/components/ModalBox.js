@@ -96,19 +96,16 @@ const ModalBox = ({ classnames, closeBox }) => {
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Middle Name</label>
                             <input type="text" placeholder="Aicha" className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={middleName} onChange={(e) => setMiddleName(e.target.value)} />
-
                         </div>
 
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Last Name</label>
                             <input type="text" placeholder="Ikram" className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-
                         </div>
 
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Birth Date</label>
                             <input type="date" placeholder="Ikram" className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={birthDate} onChange={(e) => setBirthDate(e.target.value)}/>
-
                         </div>
                     </div>
                     <div className="px-10 flex flex-col md:flex-row lg:flex-row gap-4 lg:gap-10 mx-auto pt-10 w-full">
