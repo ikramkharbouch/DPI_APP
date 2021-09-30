@@ -13,36 +13,36 @@ var PatientSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    BirthDate: {
+    birthDate: {
         type: Date,
         required: true
     },
-    MaritalStatus: {
+    maritalStatus: {
         type: String,
         enum: ['Single', 'Married', 'Widow'],
         required: true
     },
-    Nationality: {
+    nationality: {
         type: String,
         enum: ['Morocco', 'France', 'Germany'],
         required: true
     },
-    PhoneNumber: {
+    phoneNumber: {
         type: Number
     },
-    BloodType: {
+    bloodType: {
         type: String,
         enum: ['AB+', 'A+', 'B+', 'O+', 'AB-', 'A-', 'B-', 'O-'],
         required: true
     },
-    Vaccinated: {
+    vaccinated: {
         type: Boolean,
         required: true
     },
-    VaccinationDate: {
+    vaccinationDate: {
         type: Date
     },
-    MedicalAntecedents: [{
+    medicalAntecedents: [{
         type: Array,
         required: true
     }]

@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken')
 var User = require('../model/User')
 
+const { patientSchema } = require('../helpers/validationSchema')
+
 const isAuthenticated = async (req, res, next) => {
 
     console.log(req.cookies)
@@ -23,6 +25,20 @@ const isAuthenticated = async (req, res, next) => {
 }
 
 
+const validateData = async (req, res, next) => {
+
+    const { error, value } = patientSchema.validate(req.body)
+
+    if (error) {
+        return res.status(409).json({ error })
+    }
+    
+    req.body = value;
+    next();
+}
+
+
 module.exports = {
-    isAuthenticated: isAuthenticated
+    isAuthenticated: isAuthenticated,
+    validateData: validateData
 }

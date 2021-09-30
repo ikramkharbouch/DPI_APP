@@ -10,20 +10,20 @@ const registerSchema = Joi.object({
 })
 
 const patientSchema = Joi.object({
-    firstName: Joi.string().alphanum().min(2).max(24).required(),
+    firstName: Joi.string().alphanum().min(2).max(24).trim().required(),
     middleName: Joi.string().alphanum().min(2).max(24),
     lastName: Joi.string().alphanum().min(2).max(24).required(),
-    BirthDate: Joi.date().required(),
-    MaritalStatus: Joi.string().pattern(new RegExp('^\bSingle|Married\b$')),
-    Nationality: Joi.string().pattern(new RegExp('^\bMorocco|France\b$')),
-    PhoneNumber: Joi.number().min(8).max(15),
-    BloodType: Joi.string().valid('AB+', 'A+', 'B+', 'O+', 'AB-', 'A-', 'B-', 'O-'),
-    Vaccinated: Joi.boolean().required(),
-    VaccinationDate: Joi.date(),
-    MedicalAntecedents: Joi.array().items(Joi.string())
+    birthDate: Joi.date().required(),
+    maritalStatus: Joi.string().valid('Single', 'Married'),
+    nationality: Joi.string().valid('Morocco', 'France'),
+    phoneNumber: Joi.number(),
+    bloodType: Joi.string().valid('AB+', 'A+', 'B+', 'O+', 'AB-', 'A-', 'B-', 'O-'),
+    vaccinated: Joi.boolean().required(),
+    vaccinationDate: Joi.date(),
+    medicalAntecedents: Joi.array().items(Joi.string())
 })
 
-module.exports = { registerSchema, patientSchema }
+module.exports = { patientSchema }
 
 
 
