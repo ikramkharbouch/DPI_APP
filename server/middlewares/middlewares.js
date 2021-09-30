@@ -3,6 +3,7 @@ var User = require('../model/User')
 
 const isAuthenticated = async (req, res, next) => {
 
+    console.log(req.cookies)
     try {
         const cookie = req.cookies['jwt']
 

@@ -9,18 +9,19 @@ router.use(cookieParser())
 
 router.post('/add', middlewares.isAuthenticated, (req, res) => {
 
-    console.log(req.body)
-    const { title, timing } = req.body
-    const appointment = new Appointment({
+    const { title, day, timing } = req.body
 
+    const appointment = new Appointment({
+        title: title,
+        day: day,
+        timing: timing
     })
 
-    res.json({message: "Ha f mok"})
+    appointment.save()
+
+    res.status(200).json({message: "Appointment was set successfully"})
 
 })
 
 module.exports = router;
-
-// Making a middleware to make sure the user is authenticated
-// before creating a new patient
 

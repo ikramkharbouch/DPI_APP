@@ -2,14 +2,24 @@ var express = require('express');
 var router = express.Router();
 var Patient = require('../model/Patient')
 const middlewares = require('../middlewares/middlewares')
+const cookieParser = require('cookie-parser')
 
+const patientSchema = require('../helpers/validationSchema')
+
+router.use(cookieParser())
 
 // Making a middleware to make sure the user is authenticated
 // before creating a new patient
 
 
 // Home page route.
-router.post('/add', middlewares.isAuthenticated, function (req, res) {
+router.post('/add', middlewares.isAuthenticated, (req, res) => {
+
+    // Validate the patient's schema
+
+    const result = patientSchema.validate(req.body)
+
+    console.log(result)
 
     var patient = new Patient(req.body)
 

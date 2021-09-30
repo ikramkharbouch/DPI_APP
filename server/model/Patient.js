@@ -43,7 +43,7 @@ var PatientSchema = new mongoose.Schema({
         type: Date
     },
     MedicalAntecedents: [{
-        type: String,
+        type: Array,
         required: true
     }]
 });

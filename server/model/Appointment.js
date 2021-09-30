@@ -5,12 +5,15 @@ var AppointmentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    Timing: {
-        type: Date,
-        default: Date.now(),
+    day: {
+        type: String,
+        required: true
+    },
+    timing: {
+        type: String,
         required: true
     }
 })
 
 
-module.exports = mongoose.model('Appointment', AppointmentSchema) 
+module.exports = mongoose.model('Appointment', AppointmentSchema)

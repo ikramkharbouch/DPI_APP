@@ -70,9 +70,9 @@ router.post('/login', async (req, res) => {
 
     const token = jwt.sign({id: user._id}, process.env.JWT_TOKEN_SECRET)
 
+    
     res.cookie('jwt', token, {
-        httpOnly: true,
-        maxAge: 60 * 60 * 1000 // the user gets the access token for 1 day
+        httpOnly: true
     })
 
     res.send({
