@@ -1,6 +1,7 @@
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
+import { Card } from './Card'
 
 
 const Calendar = ({ classnames, closeCalendar }) => {
@@ -8,6 +9,8 @@ const Calendar = ({ classnames, closeCalendar }) => {
     const [title, setTitle] = useState("")
     const [day, setDay] = useState("")
     const [timing, setTiming] = useState("")
+    const [errorMsg, setErrorMsg] = useState("")
+    const [successMsg, setSuccessMsg] = useState("")
 
 
     const SubmitHandler = async (e) => {
@@ -34,12 +37,18 @@ const Calendar = ({ classnames, closeCalendar }) => {
 
         const formattedRes = await res.json()
 
-        console.log(formattedRes)
+        if (res.status === 200) {
+            setSuccessMsg("success")
+        } else if (res.status !== 200) {
+            setErrorMsg("error")
+        }
 
     }
 
     return (<>
         <div className={`${classnames} text-3xl text-center bg-white h-3/4 md:h-4/6 lg:h-3/6 w-5/6 z-10 rounded mx-auto shadow-2xl absolute ml-auto mr-auto left-0 right-0 mt-14`}>
+            {errorMsg && <Card Message={errorMsg} classnames="bg-red-100 text-red-400 border-red-300" iconColor="red"/>}
+            {successMsg && <Card Message={successMsg} classnames="bg-green-100 text-green-400 border-green-300" iconColor="green"/>}
             <FontAwesomeIcon icon={faTimes} color="red" onClick={closeCalendar} size="xs" className='cursor-pointer float-right mr-10 mt-5' />
             <h1 className="text-gray-600 text-xl mt-10 font-bold">Set Appointment</h1>
             <div className="mx-auto text-center w-full">

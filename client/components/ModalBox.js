@@ -16,11 +16,11 @@ const ModalBox = ({ classnames, closeBox }) => {
     const [middleName, setMiddleName] = useState("")
     const [lastName, setLastName] = useState("")
     const [birthDate, setBirthDate] = useState("")
-    const [MaritalStatus, setMaritalStatus] = useState("")
-    const [Nationality, setNationality] = useState("")
-    const [PhoneNumber, setPhoneNumber] = useState("")
-    const [BloodType, setBloodType] = useState("")
-    const [Vaccinated, setVaccinated] = useState(true)
+    const [maritalStatus, setMaritalStatus] = useState("")
+    const [nationality, setNationality] = useState("")
+    const [phoneNumber, setPhoneNumber] = useState("")
+    const [bloodType, setBloodType] = useState("")
+    const [vaccinated, setVaccinated] = useState(false)
     const [vaccinationDate, setVaccinationDate] = useState()
     const [medicalAntecedents, setMedicalAntecedents] = useState(Tags)
 
@@ -44,25 +44,30 @@ const ModalBox = ({ classnames, closeBox }) => {
         console.log("Tag closed")
     }
 
-    const SubmitHandler = (e) => {
+    const SubmitHandler = async (e) => {
         e.preventDefault();
         console.log(e.which)
         if (e.which === 13) {
             console.log("I won't handle the form")
         }
         else {
-            console.log(firstName)
-            console.log(middleName)
-            console.log(lastName)
-            console.log(birthDate)
-            console.log(MaritalStatus)
-            console.log(Nationality)
-            console.log(PhoneNumber)
-            console.log(BloodType)
-            console.log(Vaccinated)
-            console.log(vaccinationDate)
-            console.log(medicalAntecedents)
-            console.log("It will handle the form")
+
+            // Fetch the api in here
+
+            const data = {firstName, middleName, lastName, birthDate, maritalStatus, nationality, phoneNumber, bloodType, vaccinated, vaccinationDate, medicalAntecedents}
+
+            const res = await fetch('http://localhost:8000/patient/add', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                credentials: 'include'
+            })
+
+            const formattedRes = await res.json()
+
+            if (res.status === 200) {
+                console.log("Patient was added successfully")
+                console.log(formattedRes)
+            }
         }
     }
 
@@ -100,18 +105,18 @@ const ModalBox = ({ classnames, closeBox }) => {
 
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Last Name</label>
-                            <input type="text" placeholder="Ikram" className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                            <input type="text" placeholder="Kharbouch" className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                         </div>
 
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Birth Date</label>
-                            <input type="date" placeholder="Ikram" className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={birthDate} onChange={(e) => setBirthDate(e.target.value)}/>
+                            <input type="date" className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={birthDate} onChange={(e) => setBirthDate(e.target.value)}/>
                         </div>
                     </div>
                     <div className="px-10 flex flex-col md:flex-row lg:flex-row gap-4 lg:gap-10 mx-auto pt-10 w-full">
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Marital status</label>
-                            <select className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={MaritalStatus} onChange={(e) => setMaritalStatus(e.target.value)}>
+                            <select className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={maritalStatus} onChange={(e) => setMaritalStatus(e.target.value)}>
                                 <option value="single">Single</option>
                                 <option value="married">Married</option>
                             </select>
@@ -119,7 +124,7 @@ const ModalBox = ({ classnames, closeBox }) => {
 
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Nationality</label>
-                            <select className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-40 lg:w-40 pl-5" value={Nationality} onChange={(e) => setNationality(e.target.value)}>
+                            <select className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-40 lg:w-40 pl-5" value={nationality} onChange={(e) => setNationality(e.target.value)}>
                                 <option value="single">Morocco</option>
                                 <option value="married">France</option>
                             </select>
@@ -131,22 +136,26 @@ const ModalBox = ({ classnames, closeBox }) => {
                         <div className="flex flex-col">
                             <label className="text-xs text-blue-500 font-bold absolute">Phone Number</label>
                             <div className="w-12 h-5  bg-yellow-200 text-yellow-400 relative top-7 lg:top-10 left-5 text-xs rounded-full font-bold">{numberRegion}</div>
-                            <input type="text" className="py-2 lg:py-5 rounded border text-sm w-60 pl-20" placeholder="0655481976..." id="phone-number" value={PhoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/>
+                            <input type="text" className="py-2 lg:py-5 rounded border text-sm w-60 pl-20" placeholder="0655481976..." id="phone-number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/>
                         </div>
 
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Blood Type</label>
-                            <select className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-40 lg:w-40 pl-5" value={BloodType} onChange={(e) => setBloodType(e.target.value)}>
+                            <select className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-40 lg:w-40 pl-5" value={bloodType} onChange={(e) => setBloodType(e.target.value)}>
                                 <option value="single">AB+</option>
                                 <option value="married">A+</option>
                                 <option value="married">B+</option>
                                 <option value="married">O+</option>
+                                <option value="married">AB-</option>
+                                <option value="married">A-</option>
+                                <option value="married">B-</option>
+                                <option value="married">O-</option>
                             </select>
                         </div>
 
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Covid19 Vaccinated</label>
-                            <select className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-40 lg:w-40 pl-5" value={Vaccinated} onChange={(e) => setVaccinated(e.target.value)}>
+                            <select className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-40 lg:w-40 pl-5" value={vaccinated} onChange={(e) => { if (vaccinated === "Yes") setVaccinated(true); else if (vaccinated === "No") setVaccinated(false)} }>
                                 <option value="single">No</option>
                                 <option value="married">Yes</option>
                             </select>

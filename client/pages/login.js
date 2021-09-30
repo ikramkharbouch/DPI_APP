@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import Card from '../components/Card'
 import { useRouter } from 'next/router'
 
+
 import withoutAuth from './auth/withoutAuth'
 
 const Login = ({cookies}) => {
@@ -58,7 +59,7 @@ const Login = ({cookies}) => {
             setErrorMsg(formattedRes.message)
         } else if (res.status === 200)
         {
-            router.reload()
+            router.push('/login')
             router.push('/home')
         }
 
