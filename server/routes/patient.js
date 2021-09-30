@@ -11,7 +11,7 @@ router.use(cookieParser())
 
 
 // Home page route.
-router.post('/add', middlewares.isAuthenticated, middlewares.validateData, (req, res) => {
+router.post('/add', middlewares.isAuthenticated, middlewares.validatePatient, (req, res) => {
 
     // Validate the patient's schema
 

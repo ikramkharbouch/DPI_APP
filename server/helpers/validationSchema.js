@@ -9,6 +9,13 @@ const registerSchema = Joi.object({
     repeat_password: Joi.ref('password'),
 })
 
+
+const appointmentSchema = Joi.object({
+    title: Joi.string().alphanum().min(5).max(10).required(),
+    day: Joi.string().required(),
+    timing: Joi.string().required()
+})
+
 const patientSchema = Joi.object({
     firstName: Joi.string().alphanum().min(2).max(24).trim().required(),
     middleName: Joi.string().alphanum().min(2).max(24),
@@ -23,7 +30,7 @@ const patientSchema = Joi.object({
     medicalAntecedents: Joi.array().items(Joi.string())
 })
 
-module.exports = { patientSchema }
+module.exports = { patientSchema, registerSchema, appointmentSchema }
 
 
 

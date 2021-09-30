@@ -7,7 +7,7 @@ const middlewares = require('../middlewares/middlewares')
 
 router.use(cookieParser())
 
-router.post('/add', middlewares.isAuthenticated, (req, res) => {
+router.post('/add', middlewares.isAuthenticated,  (req, res) => {
 
     const { title, day, timing } = req.body
 
