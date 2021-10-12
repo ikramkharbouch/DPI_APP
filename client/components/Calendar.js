@@ -57,7 +57,7 @@ const Calendar = ({ classnames, closeCalendar }) => {
     }
 
     return (<>
-        <div className={`${classnames} text-3xl text-center bg-white h-3/4 md:h-4/6 lg:h-3/6 w-5/6 lg:w-full z-10 rounded mx-auto shadow-2xl absolute ml-auto mr-auto left-0 right-0 mt-14`}>
+        <div className={`${classnames} text-3xl text-center bg-white h-3/4 md:h-4/6 lg:h-3/6 w-4/5 z-10 rounded mx-auto shadow-2xl absolute ml-auto mr-auto left-0 right-0 mt-14`}>
             {errorMsg && <Card Message={errorMsg} classnames="text-sm lg:text-base bg-red-100 text-red-400 border-red-300 mx-auto" iconColor="red"/>}
             {successMsg && <Card Message={successMsg} classnames="text-sm lg:text-base bg-green-100 text-green-400 border-green-300 mx-auto" iconColor="green"/>}
             <FontAwesomeIcon icon={faTimes} color="red" onClick={closeCalendar} size="xs" className='cursor-pointer float-right mr-10 mt-5' />

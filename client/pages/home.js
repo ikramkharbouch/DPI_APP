@@ -1,4 +1,4 @@
-import LoggedinMenu from '../components/LoggedinMenu'
+import LoggedinMenu from '../components/loggedinMenu'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faPlus, faCalendar } from '@fortawesome/free-solid-svg-icons'
 import ModalBox from '../components/ModalBox'
@@ -85,16 +85,16 @@ const Home = () => {
             </div>
             <ModalBox classnames={hiddenModal} onClick={addPatient} closeBox={closeBox} />
             <Calendar classnames={hiddenCalendar} closeCalendar={closeCalendar} />
-            <div className="w-5/6 lg:w-11/12 h-3/5 lg:h-3/4 bg-white mx-auto flex flex-wrap flex-col mt-4 lg:mt-20 rounded-lg items-center lg:px-32 gap">
+            <div className="w-5/6 lg:w-11/12 h-screen lg:h-3/4 bg-white mx-auto flex flex-wrap flex-col mt-4 lg:mt-20 rounded-lg items-center lg:px-32 gap">
                 <div className="pt-10 w-11/12 flex flex-wrap mx-auto text-center items-center">
                     <form className="w-full ml-0">
                         <input type="text" placeholder="search" className="border w-5/6 lg:px-20 py-4 rounded-lg pl-5" />
                         <FontAwesomeIcon icon={faSearch} color="gray" size="lg" className="relative right-16 md:right-24 lg:right-20 lg:mr-10 mt-5" />
                     </form>
                     
-                    <div className="mr-20 mx-auto lg:mx-0 hidden lg:flex mt-10">
-                        <button className="px-4 py-2 lg:px-7 lg:py-2 rounded bg-green-300 text-white font-bold mr-5 mt-5 lg:mt-0" onClick={addPatient}>Add Patient</button>
-                        <button className="px-4 py-2 lg:px-7 lg:py-2 rounded bg-blue-500 text-white font-bold" onClick={setAppointment}>Set Appointment</button>
+                    <div className="hidden lg:flex mx-auto w-1/3 gap-4 mt-10">
+                        <button className="px-4 py-2 lg:px-7 lg:py-2 rounded bg-green-300 text-white font-bold mx-auto" onClick={addPatient}>Add Patient</button>
+                        <button className="px-4 py-2 lg:px-7 lg:py-2 rounded bg-blue-500 text-white font-bold mx-auto" onClick={setAppointment}>Set Appointment</button>
                     </div>
 
                     <div className="flex lg:hidden gap-2 mx-auto mr-auto mt-10">
@@ -109,4 +109,6 @@ const Home = () => {
     </>);
 }
 
-export default withAuth(Home);
+// export default withAuth(Home);
+
+export default Home;

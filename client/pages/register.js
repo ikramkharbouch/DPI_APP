@@ -66,7 +66,7 @@ const Register = () => {
     }
 
     return (<>
-        <div className="h-screen">
+        <div className="h-full bg-red-100">
             <Menu showMenu={showMenu} />
             <div id="menu-items" className={`${hiddenMenu} border-2 border-blue-400 text-white font-medium w-5/6 mt-4 h-48 opacity  rounded-lg mx-auto text-center my-auto`}>
                 <ul className="p-2">
@@ -78,10 +78,10 @@ const Register = () => {
             <div className="w-5/6 lg:w-11/12 h-4/5 lg:h-4/5 bg-white mx-auto mt-4 lg:mt-20 rounded-lg flex flex-col items-center">
                 {errorMsg && <Card Message={errorMsg} classnames="bg-red-100 text-red-400 border-red-300" iconColor="red" />}
                 {successMsg && <Card Message={successMsg} classnames="bg-green-100 text-green-400 border-green-300" iconColor="green" />}
-                <div className="w-1/2 mx-auto text-center mt-10"><Image src={medicalRecord} width={200}
-                    height={200} layout="intrinsic" alt="Picture of the medical record" /></div>
-                <div className="mt-20 w-full lg:w-3/5 h-3/6 lg:h-2/4 lg:bg-gray-200 rounded-lg mx-auto text-center">
-                    <form className="max-w-full grid lg:mt-5 justify-items-stretch w-3/4 mx-auto text-center" onSubmit={handleForm}>
+                <div className="w-1/2 mx-auto text-center mt-10"><Image src={medicalRecord} width={100}
+                    height={100} layout="intrinsic" alt="Picture of the medical record" /></div>
+                <div className="mt-10 w-full lg:w-3/5 h-3/6 lg:h-3/5 lg:bg-gray-200 rounded-lg mx-auto text-center">
+                    <form className="max-w-full grid lg:mt-10 justify-items-stretch w-3/4 mx-auto text-center" onSubmit={handleForm}>
 
                         <input type="text" className="py-2 pl-5 mt-5 lg:py-5 rounded border lg:border-0" placeholder="Nom d'utilisateur" value={username} onChange={(e) => setUsername(e.target.value)} />
                         <input type="text" className="py-2 mt-5 pl-5 lg:py-5 rounded border lg:border-0" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />

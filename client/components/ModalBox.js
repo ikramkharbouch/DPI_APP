@@ -86,7 +86,7 @@ const ModalBox = ({ classnames, closeBox }) => {
     const [numberRegion, setNumberRegion] = useState('+212')
 
     return (<>
-        <div className={`${classnames} text-3xl text-center bg-white h-11/12 mb-10 md:h-3/6 lg:h-3/6 w-5/6 z-10 rounded mx-auto shadow-2xl absolute ml-auto mr-auto left-0 right-0 mt-14`}>
+        <div className={`${classnames} text-3xl text-center bg-white h-screen mb-10 md:h-3/6 lg:h-3/5 w-5/6 z-10 rounded mx-auto shadow-2xl absolute ml-auto mr-auto left-0 right-0 mt-14`}>
             <FontAwesomeIcon icon={faTimes} color="red" onClick={closeBox} size="xs" className='cursor-pointer float-right mr-10 mt-5' />
             <h1 className="text-gray-600 text-xl mt-10 font-bold">Add patient</h1>
             <div className="mx-auto text-center">
