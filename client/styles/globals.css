@@ -81,3 +81,11 @@ select {
   }
 }
 
+@media only screen and (max-width: 1024px) {
+  .medium-screen {
+    min-height: 80%;
+  }
+  .wrap {
+    flex-wrap: wrap;
+  }
+}
