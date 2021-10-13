@@ -84,7 +84,7 @@ select {
 @media only screen and (max-width: 768px) {
 
   .first-section {
-    max-height: 80%;
+    min-height: 80%;
   }
 }
 
@@ -94,5 +94,33 @@ select {
   }
   .wrap {
     flex-wrap: wrap;
+  }
+}
+
+/* Mobile version */
+
+@media only screen and (max-width: 425px) {
+
+  .first-section {
+    min-height: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .second-section {
+    min-height: 16rem;
+  }
+
+  .third-section {
+    min-height: 100%;
+  }
+
+  /* .fourth-section {
+    height: 20rem;
+  } */
+  
+  .medium-screen {
+    min-height: 80%;
   }
 }
