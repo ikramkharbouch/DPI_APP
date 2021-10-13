@@ -28,9 +28,9 @@ const homePage = () => {
 
         <Container className="flex justify-between first-section" style={{ height: "40%" }}>
             <Container className="h-full">
-                <h1 className="md:text-xl lg:text-3xl md:mt-16 lg:mt-28 ml-0">Créez votre <span className="text-blue-500 font-bold">dossier
+                <h1 className="text-xl lg:text-3xl mt-10 md:mt-16 lg:mt-28 ml-0">Créez votre <span className="text-blue-500 font-bold">dossier
                     patient en ligne</span></h1>
-                <p className="md:mt-5 lg:mt-10 md:text-sm lg:text-base">Using our software, one can book, create, and follow their medical records easily and without using any paper.
+                <p className="md:mt-5 lg:mt-10 text-xs md:text-sm lg:text-base">Using our software, one can book, create, and follow their medical records easily and without using any paper.
                     You can use our product easily by registering and approving your email.
                     Using our software, one can book, create, and follow their medical records easily and without using any paper.
                     You can use our product easily by registering and approving your email.</p>
@@ -39,9 +39,9 @@ const homePage = () => {
             <Image src="doctor-lady-5.png" className="w-1/2 h-full hidden md:block lg:block first-image"/>
         </Container>
 
-        <Container className="w-full bg-blue-500 mt-0 hidden md:flex lg:flex text-white gap-50 mx-auto" style={{ height: "120px" }}>
+        <Container className="hidden md:w-full lg:w-full bg-blue-500 mt-0 md:flex lg:flex text-white gap-50 mx-auto" style={{ height: "120px" }}>
             <div className="my-auto mx-24">
-                <h3 className="font-light md:text-sm lg:text-base">Etape 1:</h3>
+                <h3 className="font-light text-sm lg:text-base">Etape 1:</h3>
                 <h1 className="font-bold md:text-sm lg:text-xl">S'inscrire</h1>
             </div>
 

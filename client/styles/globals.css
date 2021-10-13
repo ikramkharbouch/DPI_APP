@@ -81,6 +81,13 @@ select {
   }
 }
 
+@media only screen and (max-width: 768px) {
+
+  .first-section {
+    max-height: 80%;
+  }
+}
+
 @media only screen and (max-width: 1024px) {
   .medium-screen {
     min-height: 80%;
