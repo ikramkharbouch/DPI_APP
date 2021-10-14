@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import withAuth from './auth/withAuth'
 import Calendar from '../components/Calendar'
 import { useRouter } from 'next/router'
-
+import NavBar from '../components/NavBar'
 
 const Home = () => {
 
@@ -77,7 +77,8 @@ const Home = () => {
 
     return (<>
         <div className="h-screen mx-auto text-center relative">
-            <LoggedinMenu showMenu={showMenu} Logout={Logout}/>
+            {/* <LoggedinMenu showMenu={showMenu} Logout={Logout}/> */}
+            <NavBar />
             <div id="menu-items" className={`${hiddenMenu} text-white font-bold w-5/6 mt-4 h-28 rounded-lg mx-auto text-center my-auto`}>
                 <ul className="p-2">
                     <li className="hover:bg-gray-700 bg-blue-500 mx-auto py-4 rounded mt-4 w-full cursor-pointer" onClick={Logout}>Se déconnecter</li>

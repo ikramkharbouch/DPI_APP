@@ -95,28 +95,28 @@ const ModalBox = ({ classnames, closeBox }) => {
 
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">First Name</label>
-                            <input type="text" placeholder="Ikram" className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 w-full pl-5" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                            <input type="text" placeholder="Ikram" className="py-2 mt-4 lg:py-5 rounded border text-sm md:w-40 lg:w-40 w-full pl-4" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                         </div>
 
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Middle Name</label>
-                            <input type="text" placeholder="Aicha" className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={middleName} onChange={(e) => setMiddleName(e.target.value)} />
+                            <input type="text" placeholder="Aicha" className="py-2 mt-4 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={middleName} onChange={(e) => setMiddleName(e.target.value)} />
                         </div>
 
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Last Name</label>
-                            <input type="text" placeholder="Kharbouch" className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                            <input type="text" placeholder="Kharbouch" className="py-2 mt-4 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                         </div>
 
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Birth Date</label>
-                            <input type="date" className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={birthDate} onChange={(e) => setBirthDate(e.target.value)}/>
+                            <input type="date" className="py-2 mt-4 lg:py-5 rounded border text-sm md:w-40 lg:w-40 w-full" value={birthDate} onChange={(e) => setBirthDate(e.target.value)}/>
                         </div>
                     </div>
                     <div className="px-10 flex flex-col md:flex-row lg:flex-row gap-4 lg:gap-10 mx-auto pt-10 w-full">
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Marital status</label>
-                            <select className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" value={maritalStatus} onChange={(e) => setMaritalStatus(e.target.value)}>
+                            <select className="py-2 mt-4 lg:py-5 rounded border text-sm md:w-40 lg:w-40 w-full" value={maritalStatus} onChange={(e) => setMaritalStatus(e.target.value)}>
                                 <option value="single">Single</option>
                                 <option value="married">Married</option>
                             </select>
@@ -124,7 +124,7 @@ const ModalBox = ({ classnames, closeBox }) => {
 
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Nationality</label>
-                            <select className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-40 lg:w-40 pl-5" value={nationality} onChange={(e) => setNationality(e.target.value)}>
+                            <select className="py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-40 lg:w-40" value={nationality} onChange={(e) => setNationality(e.target.value)}>
                                 <option value="single">Morocco</option>
                                 <option value="married">France</option>
                             </select>
@@ -135,13 +135,13 @@ const ModalBox = ({ classnames, closeBox }) => {
 
                         <div className="flex flex-col">
                             <label className="text-xs text-blue-500 font-bold absolute">Phone Number</label>
-                            <div className="w-12 h-5  bg-yellow-200 text-yellow-400 relative top-7 lg:top-10 left-5 text-xs rounded-full font-bold">{numberRegion}</div>
-                            <input type="text" className="py-2 lg:py-5 rounded border text-sm w-60 pl-20" placeholder="0655481976..." id="phone-number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/>
+                            <div className="w-12 h-5  bg-yellow-200 text-yellow-400 relative top-10 lg:top-7 left-5 text-xs rounded-full font-bold">{numberRegion}</div>
+                            <input type="text" className="py-2 lg:py-5 rounded border text-sm w-60 pl-10" placeholder="0655481976..." id="phone-number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/>
                         </div>
 
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Blood Type</label>
-                            <select className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-40 lg:w-40 pl-5" value={bloodType} onChange={(e) => setBloodType(e.target.value)}>
+                            <select className="py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-40 lg:w-40 pl-3" value={bloodType} onChange={(e) => setBloodType(e.target.value)}>
                                 <option value="single">AB+</option>
                                 <option value="married">A+</option>
                                 <option value="married">B+</option>
@@ -155,7 +155,7 @@ const ModalBox = ({ classnames, closeBox }) => {
 
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Covid19 Vaccinated</label>
-                            <select className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-40 lg:w-40 pl-5" value={vaccinated} onChange={(e) => { if (vaccinated === "Yes") setVaccinated(true); else if (vaccinated === "No") setVaccinated(false)} }>
+                            <select className="py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-40 lg:w-40 pl-3" value={vaccinated} onChange={(e) => { if (vaccinated === "Yes") setVaccinated(true); else if (vaccinated === "No") setVaccinated(false)} }>
                                 <option value="single">No</option>
                                 <option value="married">Yes</option>
                             </select>
@@ -165,16 +165,16 @@ const ModalBox = ({ classnames, closeBox }) => {
                     <div className="px-10 flex flex-col md:flex-row lg:flex-row gap-4 lg:gap-10 mx-auto pt-10 w-full">
                         <div>
                             <label className="text-xs text-blue-500 absolute font-bold">Vaccination Date</label>
-                            <input type="date" className="py-2 mt-5 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-5 w-full" />
+                            <input type="date" className="py-2 mt-4 lg:py-5 rounded border text-sm md:w-40 lg:w-40 pl-3 w-full" />
 
                         </div>
                         <div className="flex flex-col w-full md:w-4/5 lg:w-4/5">
                             <label className="text-xs font-bold text-left text-blue-500">Medical Antecedents</label>
-                            <div className="input border flex items-center w-full rounded h-14 lg:h-16 self-end mt-1">
+                            <div className="input border flex items-center w-full rounded h-10 lg:h-10 self-end mt-2">
                                 <ul className="text-sm flex flex-wrap gap-2">
                                     {Tags.map((tag) => <div className="flex"><li key={tag} id={tag} className="bg-green-100 px-6 md:py-1 rounded-full border text-green-400 font-bold border-green-400 ml-2 text-xs">#{tag}<FontAwesomeIcon key={tag} id={tag} icon={faTimes} color="gray" onClick={removeTag} size="sm" className='ml-1 absolute mt-0.5 cursor-pointer' /></li></div>)}
                                 </ul>
-                                {(tagsNumber < 5) && <input type="text" placeholder="Enter here..." className="text-sm ml-5 pl-5" value={Tag} onChange={ChangeHandler} onKeyPress={KeyPressHandler} />}
+                                {(tagsNumber < 5) && <input type="text" placeholder="Enter here..." className="text-sm ml-2 pl-4" value={Tag} onChange={ChangeHandler} onKeyPress={KeyPressHandler} />}
                             </div>
                         </div>
 

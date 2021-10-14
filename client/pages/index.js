@@ -1,6 +1,6 @@
 import { Navbar, Nav, NavDropdown, Button, Container } from "react-bootstrap"
 import Image from 'react-bootstrap/Image'
-import Link from 'next/link'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const homePage = () => {
 
