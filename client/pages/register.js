@@ -66,7 +66,7 @@ const Register = () => {
     }
 
     return (<>
-        <div className="h-full bg-red-100">
+        <div className="h-full">
             <Menu showMenu={showMenu} />
             <div id="menu-items" className={`${hiddenMenu} border-2 border-blue-400 text-white font-medium w-5/6 mt-4 h-48 opacity  rounded-lg mx-auto text-center my-auto`}>
                 <ul className="p-2">
