@@ -3,12 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
 import Card from './Card'
 
-
 const Calendar = ({ classnames, closeCalendar }) => {
 
+    const [patientName, setPatientName] = useState("")
     const [title, setTitle] = useState("")
     const [day, setDay] = useState("")
     const [timing, setTiming] = useState("")
+    const [doctor, setDoctor] = useState("")
+    const [disease, setDisease] = useState("")
     const [errorMsg, setErrorMsg] = useState("")
     const [successMsg, setSuccessMsg] = useState("")
 
@@ -23,7 +25,7 @@ const Calendar = ({ classnames, closeCalendar }) => {
 
         e.preventDefault()
 
-        const data = {title, day, timing}
+        const data = { title, day, timing }
 
         console.log(title)
         console.log(day)
@@ -37,7 +39,7 @@ const Calendar = ({ classnames, closeCalendar }) => {
             headers: {
                 'Content-Type': 'application/json'
                 // 'Content-Type': 'application/x-www-form-urlencoded',
-              },
+            },
             credentials: 'include',
         })
 
@@ -57,25 +59,37 @@ const Calendar = ({ classnames, closeCalendar }) => {
     }
 
     return (<>
-        <div className={`${classnames} text-3xl text-center bg-white h-3/4 md:h-4/6 lg:h-3/6 w-4/5 z-10 rounded mx-auto shadow-2xl absolute ml-auto mr-auto left-0 right-0 mt-14`}>
-            {errorMsg && <Card Message={errorMsg} classnames="text-sm lg:text-base bg-red-100 text-red-400 border-red-300 mx-auto" iconColor="red"/>}
-            {successMsg && <Card Message={successMsg} classnames="text-sm lg:text-base bg-green-100 text-green-400 border-green-300 mx-auto" iconColor="green"/>}
+        <div className={`${classnames} text-3xl text-center bg-white h-3/4 md:h-4/6 lg:h-5/6 w-4/5 z-10 rounded mx-auto shadow-2xl absolute ml-auto mr-auto left-0 right-0 mt-14`}>
+            {errorMsg && <Card Message={errorMsg} classnames="text-sm lg:text-base bg-red-100 text-red-400 border-red-300 mx-auto" iconColor="red" />}
+            {successMsg && <Card Message={successMsg} classnames="text-sm lg:text-base bg-green-100 text-green-400 border-green-300 mx-auto" iconColor="green" />}
             <FontAwesomeIcon icon={faTimes} color="red" onClick={closeCalendar} size="xs" className='cursor-pointer float-right mr-10 mt-5' />
             <h1 className="text-gray-600 text-xl mt-10 font-bold">Set Appointment</h1>
             <div className="mx-auto text-center w-full">
                 <form className="flex flex-col flex-wrap mx-auto w-full" onSubmit={SubmitHandler}>
                     <div className="px-10 flex flex-col gap-6 lg:gap-10 mx-auto pt-10 w-full" >
                         <div className="w-full ">
-                            <label className="text-xs text-blue-500 absolute font-bold">Appointment's title</label>
-                            <input type="text" placeholder="Some random title" className="pl-5 py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={title} onChange={(e) => setTitle(e.target.value)} required/>
+                            <label className="text-xs text-blue-500 absolute font-bold">Le nom du patient</label>
+                            <input type="text" placeholder="Some random title" className="pl-4 py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={patientName} onChange={(e) => setPatientName(e.target.value)} required />
+                        </div>
+                        <div className="w-full ">
+                            <label className="text-xs text-blue-500 absolute font-bold">Titre du rendez-vous</label>
+                            <input type="text" placeholder="Some random title" className="pl-4 py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={title} onChange={(e) => setTitle(e.target.value)} required />
                         </div>
                         <div className="w-full">
-                            <label className="text-xs text-blue-500 absolute font-bold">Day</label>
-                            <input type="date" placeholder="Ikram" className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3 pl-5" value={day} onChange={(e) => setDay(e.target.value)} required/>
+                            <label className="text-xs text-blue-500 absolute font-bold">Jour</label>
+                            <input type="date" placeholder="Ikram" className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3 pl-5" value={day} onChange={(e) => setDay(e.target.value)} required />
                         </div>
                         <div className="w-full">
-                            <label className="text-xs text-blue-500 absolute font-bold">Timing</label>
-                            <input type="time" placeholder="Ikram" className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3 pl-5" value={timing} onChange={(e) => setTiming(e.target.value)} required/>
+                            <label className="text-xs text-blue-500 absolute font-bold">Heure</label>
+                            <input type="time" placeholder="Ikram" className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3 pl-5" value={timing} onChange={(e) => setTiming(e.target.value)} required />
+                        </div>
+                        <div className="w-full">
+                            <label className="text-xs text-blue-500 absolute font-bold">Nom du médecin</label>
+                            <input type="text" placeholder="Some random title" className="pl-4 py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={doctor} onChange={(e) => setDoctor(e.target.value)} required />
+                        </div>
+                        <div className="w-full">
+                            <label className="text-xs text-blue-500 absolute font-bold">Maladie/Symptome</label>
+                            <input type="text" placeholder="Some random title" className="pl-4 py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={disease} onChange={(e) => setDisease(e.target.value)} required />
                         </div>
                         <input type="submit" className="bg-green-400 text-sm lg:text-lg py-2 lg:py-4 text-white font-bold rounded mt-5 cursor-pointer w-full md:w-1/3 lg:w-1/3 mx-auto" />
                     </div>
