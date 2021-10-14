@@ -69,29 +69,29 @@ const Calendar = ({ classnames, closeCalendar }) => {
                     <div className="px-10 flex flex-col gap-6 lg:gap-10 mx-auto pt-10 w-full" >
                         <div className="w-full ">
                             <label className="text-xs text-blue-500 absolute font-bold">Le nom du patient</label>
-                            <input type="text" placeholder="Some random title" className="pl-4 py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={patientName} onChange={(e) => setPatientName(e.target.value)} required />
+                            <input type="text" placeholder="Some random title" className="pl-4 py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={patientName} onChange={(e) => setPatientName(e.target.value)} required />
                         </div>
                         <div className="w-full ">
                             <label className="text-xs text-blue-500 absolute font-bold">Titre du rendez-vous</label>
-                            <input type="text" placeholder="Some random title" className="pl-4 py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={title} onChange={(e) => setTitle(e.target.value)} required />
+                            <input type="text" placeholder="Some random title" className="pl-4 py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={title} onChange={(e) => setTitle(e.target.value)} required />
                         </div>
                         <div className="w-full">
                             <label className="text-xs text-blue-500 absolute font-bold">Jour</label>
-                            <input type="date" placeholder="Ikram" className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3 pl-5" value={day} onChange={(e) => setDay(e.target.value)} required />
+                            <input type="date" placeholder="Ikram" className="py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3 pl-5" value={day} onChange={(e) => setDay(e.target.value)} required />
                         </div>
                         <div className="w-full">
                             <label className="text-xs text-blue-500 absolute font-bold">Heure</label>
-                            <input type="time" placeholder="Ikram" className="py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3 pl-5" value={timing} onChange={(e) => setTiming(e.target.value)} required />
+                            <input type="time" placeholder="Ikram" className="py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3 pl-5" value={timing} onChange={(e) => setTiming(e.target.value)} required />
                         </div>
                         <div className="w-full">
                             <label className="text-xs text-blue-500 absolute font-bold">Nom du médecin</label>
-                            <input type="text" placeholder="Some random title" className="pl-4 py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={doctor} onChange={(e) => setDoctor(e.target.value)} required />
+                            <input type="text" placeholder="Some random title" className="pl-4 py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={doctor} onChange={(e) => setDoctor(e.target.value)} required />
                         </div>
                         <div className="w-full">
                             <label className="text-xs text-blue-500 absolute font-bold">Maladie/Symptome</label>
-                            <input type="text" placeholder="Some random title" className="pl-4 py-2 mt-5 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={disease} onChange={(e) => setDisease(e.target.value)} required />
+                            <input type="text" placeholder="Some random title" className="pl-4 py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={disease} onChange={(e) => setDisease(e.target.value)} required />
                         </div>
-                        <input type="submit" className="bg-green-400 text-sm lg:text-lg py-2 lg:py-4 text-white font-bold rounded mt-5 cursor-pointer w-full md:w-1/3 lg:w-1/3 mx-auto" />
+                        <input type="submit" className="bg-green-400 text-sm lg:text-lg py-2 lg:py-4 text-white font-bold rounded mt-4 cursor-pointer w-full md:w-1/3 lg:w-1/3 mx-auto" />
                     </div>
                 </form>
             </div>

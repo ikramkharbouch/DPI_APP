@@ -78,7 +78,7 @@ const Home = () => {
     return (<>
         <div className="h-screen mx-auto text-center relative">
             {/* <LoggedinMenu showMenu={showMenu} Logout={Logout}/> */}
-            <NavBar />
+            <LoggedinMenu />
             <div id="menu-items" className={`${hiddenMenu} text-white font-bold w-5/6 mt-4 h-28 rounded-lg mx-auto text-center my-auto`}>
                 <ul className="p-2">
                     <li className="hover:bg-gray-700 bg-blue-500 mx-auto py-4 rounded mt-4 w-full cursor-pointer" onClick={Logout}>Se déconnecter</li>
@@ -89,7 +89,7 @@ const Home = () => {
             <div className="w-5/6 lg:w-11/12 h-screen lg:h-3/4 bg-white mx-auto flex flex-wrap flex-col mt-4 lg:mt-20 rounded-lg items-center lg:px-32 gap">
                 <div className="pt-10 w-11/12 flex flex-wrap mx-auto text-center items-center">
                     <form className="w-full ml-0">
-                        <input type="text" placeholder="search" className="border w-5/6 lg:px-20 py-4 rounded-lg pl-5" />
+                        <input type="text" placeholder="search" className="border w-5/6 lg:px-20 py-4 rounded-lg pl-4" />
                         <FontAwesomeIcon icon={faSearch} color="gray" size="lg" className="relative right-16 md:right-24 lg:right-20 lg:mr-10 mt-5" />
                     </form>
                     
