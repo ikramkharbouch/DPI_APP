@@ -1,4 +1,3 @@
-
 import mongoose from 'mongoose';
 
 import Test from './model/Test';

@@ -9,12 +9,15 @@ router.use(cookieParser())
 
 router.post('/add', middlewares.isAuthenticated,  (req, res) => {
 
-    const { title, day, timing } = req.body
+    const { patientName,title, day, timing, doctor, disease } = req.body
 
     const appointment = new Appointment({
+        patientName: patientName,
         title: title,
         day: day,
-        timing: timing
+        timing: timing,
+        doctor: doctor,
+        disease: disease
     })
 
     appointment.save()
