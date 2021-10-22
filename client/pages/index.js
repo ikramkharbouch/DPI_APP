@@ -1,6 +1,7 @@
 import { Navbar, Nav, NavDropdown, Button, Container } from "react-bootstrap"
 import Image from 'react-bootstrap/Image'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Link from 'next/link'
 
 const homePage = () => {
 
@@ -12,7 +13,7 @@ const homePage = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto flex justify-end w-full gap-5">
                         <Nav.Link href="#home" className="">Accueil</Nav.Link>
-                        <Button className="primary bg-btn" href="#link">S'identifier</Button>
+                        <Link href="/login"><Button className="primary bg-btn" href="#link">S'identifier</Button></Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
@@ -27,12 +28,12 @@ const homePage = () => {
                     You can use our product easily by registering and approving your email.
                     Using our software, one can book, create, and follow their medical records easily and without using any paper.
                     You can use our product easily by registering and approving your email.</p>
-                <Button variant="primary" className=" md:mt-4 lg:mt-10 btn-bg">S'inscrire</Button>
+                <Link href="/register"><Button variant="primary" className=" md:mt-4 lg:mt-10 btn-bg">S'inscrire</Button></Link>
             </Container>
             <Image src="doctor-lady-5.png" className="w-full h-full hidden md:block lg:block first-image" />
         </Container>
 
-        <Container className="w-full bg-blue-500 mt-0 hidden md:flex lg:flex text-white gap-50 mx-auto" style={{ height: "120px" }}>
+        <Container className="w-full bg-blue-500 mt-0 md:flex lg:flex text-white gap-50 mx-auto" style={{ height: "120px" }}>
             <div className="my-auto mx-24">
                 <h3 className="font-light md:text-sm lg:text-base">Etape 1:</h3>
                 <h1 className="font-bold md:text-sm lg:text-xl">S'inscrire</h1>
@@ -50,14 +51,14 @@ const homePage = () => {
 
         </Container>
 
-        <Container className="w-full bg-blue-100 mt-0 hidden md:flex lg:flex text-gray-900 gap-50" style={{ height: "30%" }}>
+        <Container className="w-full bg-blue-100 mt-0 md:flex lg:flex text-gray-900 gap-50" style={{ height: "30%" }}>
             <div className="mx-24 my-auto">
                 <h1 className="md:text-base lg:text-xl font-bold">Pourquoi choisir notre application ?</h1>
                 <p className="md:text-sm lg:text-lg font-light mt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
             </div>
         </Container>
 
-        <Container className="w-full mt-10 hidden md:flex lg:flex text-gray-900 gap-50 medium-screen" style={{ maxHeight: "30%" }}>
+        <Container className="w-full mt-10 md:flex lg:flex text-gray-900 gap-50 medium-screen" style={{ maxHeight: "30%" }}>
             <div className="mx-24 my-auto w-full">
                 <h1 className="md:text-base lg:text-xl font-bold">Nos Fonctionnalités</h1>
                 <div className="flex lg:justify-between wrap gap-2 lg:gap-5">
@@ -89,7 +90,7 @@ const homePage = () => {
             </div>
         </Container>
 
-        <Container className="w-full mt-0 hidden md:flex lg:flex text-gray-900 gap-50" style={{ height: "30%" }}>
+        <Container className="w-full mt-0 md:flex lg:flex text-gray-900 gap-50" style={{ height: "30%" }}>
             <div className="mx-24 my-auto">
                 <h1 className="md:text-base lg:text-xl font-bold">Nos Partenaires</h1>
                 <div className="flex gap-10">
@@ -100,7 +101,7 @@ const homePage = () => {
             </div>
         </Container>
 
-        <Container className="bg-blue-300 w-full hidden md:flex lg:flex items-center" style={{ height: "30%", maxWidth: "100%" }}>
+        <Container className="bg-blue-300 w-full md:flex lg:flex items-center" style={{ height: "30%", maxWidth: "100%" }}>
             <Container className="flex items-center px-24 text-center">
                 <p className="font-bold mx-auto my-auto text-sm lg:text-base">2021-2022. Tous les droits sont réservés.</p>
             </Container>

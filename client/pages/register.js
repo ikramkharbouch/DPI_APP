@@ -5,6 +5,9 @@ import medicalRecord from '../public/dossier-medical.svg'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
 
+import NavBar from '../components/NavBar'
+import { Container } from 'react-bootstrap'
+
 import withoutAuth from './auth/withoutAuth'
 
 const Register = () => {
@@ -67,7 +70,7 @@ const Register = () => {
 
     return (<>
         <div className="h-full">
-            <Menu showMenu={showMenu} />
+            <NavBar />
             <div id="menu-items" className={`${hiddenMenu} border-2 border-blue-400 text-white font-medium w-5/6 mt-4 h-48 opacity  rounded-lg mx-auto text-center my-auto`}>
                 <ul className="p-2">
                     <li className="hover:bg-gray-700 bg-blue-500 mx-auto w-1/3 py-4 rounded mt-4 cursor-pointer">S'inscrire</li>
@@ -80,22 +83,26 @@ const Register = () => {
                 {successMsg && <Card Message={successMsg} classnames="bg-green-100 text-green-400 border-green-300" iconColor="green" />}
                 <div className="w-1/2 mx-auto text-center mt-10"><Image src={medicalRecord} width={100}
                     height={100} layout="intrinsic" alt="Picture of the medical record" /></div>
-                <div className="mt-10 w-full lg:w-3/5 h-3/6 lg:h-3/5 lg:bg-gray-200 rounded-lg mx-auto text-center">
-                    <form className="max-w-full grid lg:mt-10 justify-items-stretch w-3/4 mx-auto text-center" onSubmit={handleForm}>
+                <div className="mt-10 w-full h-full lg:h-3/5 lg:bg-gray-200 rounded-lg mx-auto text-center">
+                    <form className="max-w-full grid lg:mt-20 justify-items-stretch w-3/4 mx-auto text-center" onSubmit={handleForm}>
 
-                        <input type="text" className="py-2 pl-5 mt-5 lg:py-5 rounded border lg:border-0" placeholder="Nom d'utilisateur" value={username} onChange={(e) => setUsername(e.target.value)} />
-                        <input type="text" className="py-2 mt-5 pl-5 lg:py-5 rounded border lg:border-0" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <input type="password" className="py-2 mt-5 pl-5 lg:py-5 rounded border lg:border-0" placeholder="Mot de passe" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <input type="password" className="py-2 mt-5 pl-5 lg:py-5 rounded border lg:border-0" placeholder="Confirmez votre mot de passe" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} />
+                        <input type="text" className="py-2 pl-5 mt-4 lg:py-5 rounded border lg:border-0" placeholder="Nom d'utilisateur" value={username} onChange={(e) => setUsername(e.target.value)} />
+                        <input type="text" className="py-2 mt-4 pl-5 lg:py-5 rounded border lg:border-0" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <input type="password" className="py-2 mt-4 pl-5 lg:py-5 rounded border lg:border-0" placeholder="Mot de passe" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <input type="password" className="py-2 mt-4 pl-5 lg:py-5 rounded border lg:border-0" placeholder="Confirmez votre mot de passe" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} />
 
-                        <button className="text-sm md:text-base lg:text-base mt-5 font-medium text-blue-500 justify-self-end">Avez vous déjà un compte ?</button>
+                        <button className="text-sm md:text-base lg:text-base mt-4 font-medium text-blue-500 justify-self-end">Avez vous déjà un compte ?</button>
 
                         <input className="min-w-full lg:px-28 py-2 lg:py-5 rounded bg-blue-500 mt-14 font-bold text-white cursor-pointer" type="submit" value="S'inscrire" />
                     </form>
                 </div>
             </div>
         </div>
-        <Footer />
+        <Container className="bg-blue-300 w-full flex items-center" style={{ height: "30%", maxWidth: "100%" }}>
+            <Container className="flex items-center px-24 text-center">
+                <p className="font-bold mx-auto my-auto text-sm lg:text-base">2021-2022. Tous les droits sont réservés.</p>
+            </Container>
+        </Container>
 
     </>);
 }
