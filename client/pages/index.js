@@ -2,6 +2,7 @@ import { Navbar, Nav, NavDropdown, Button, Container } from "react-bootstrap"
 import Image from 'react-bootstrap/Image'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from 'next/link'
+import Footer from '../components/Footer'
 
 const homePage = () => {
 
@@ -101,11 +102,7 @@ const homePage = () => {
             </div>
         </Container>
 
-        <Container className="bg-blue-300 w-full md:flex lg:flex items-center" style={{ height: "30%", maxWidth: "100%" }}>
-            <Container className="flex items-center px-24 text-center">
-                <p className="font-bold mx-auto my-auto text-sm lg:text-base">2021-2022. Tous les droits sont réservés.</p>
-            </Container>
-        </Container>
+        <Footer />
 
 
 

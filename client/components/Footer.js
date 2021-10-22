@@ -1,13 +1,13 @@
+import { Container } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const Footer = () => {
     return (<>
-        <footer className="text-xs bg-blue-500 flex p-5 fixed bottom-0 w-full">
-            <ul className="flex text-white font-bold mx-auto gap-5">
-                <li>A propos de nous</li>
-                <li>Aide</li>
-                <li>Contact Us</li>
-            </ul>
-        </footer>
-
+        <Container className="bg-blue-300 w-full flex items-center absolute bottom-0" style={{ height: "20%", maxWidth: "100%" }}>
+            <Container className="flex items-center px-24 text-center">
+                <p className="font-bold mx-auto my-auto text-sm lg:text-base">2021-2022. Tous les droits sont réservés.</p>
+            </Container>
+        </Container>
     </>);
 }
 
