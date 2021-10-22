@@ -91,7 +91,7 @@ const homePage = () => {
             </div>
         </Container>
 
-        <Container className="w-full mt-0 md:flex lg:flex text-gray-900 gap-50" style={{ height: "30%" }}>
+        <Container className="w-full mt-3 md:flex lg:flex text-gray-900 gap-50" style={{ height: "40%" }}>
             <div className="mx-24 my-auto">
                 <h1 className="md:text-base lg:text-xl font-bold">Nos Partenaires</h1>
                 <div className="flex gap-10">
@@ -102,10 +102,11 @@ const homePage = () => {
             </div>
         </Container>
 
-        <Footer />
-
-
-
+        <Container className="bg-blue-300 w-full flex items-center relative bottom-0" style={{ height: "20%", maxWidth: "100%" }}>
+            <Container className="flex items-center px-24 text-center">
+                <p className="font-bold mx-auto my-auto text-sm lg:text-base">2021-2022. Tous les droits sont réservés.</p>
+            </Container>
+        </Container>
     </>)
 
 }

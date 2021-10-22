@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import Menu from '../components/Menu'
 import Image from 'next/image'
 import medicalRecord from '../public/dossier-medical.svg'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
 
 import NavBar from '../components/NavBar'
-import { Container } from 'react-bootstrap'
+import Link from 'next/link'
 
 import withoutAuth from './auth/withoutAuth'
 
@@ -78,27 +77,27 @@ const Register = () => {
                 </ul>
             </div>
 
-            <div className="w-5/6 lg:w-11/12 h-4/5 lg:h-4/5 bg-white mx-auto mt-4 lg:mt-20 rounded-lg flex flex-col items-center">
+            <div className="w-5/6 lg:w-11/12 h-4/5 lg:h-4/5 bg-white mx-auto mt-4 lg:mt-10 rounded-lg flex flex-col items-center">
                 {errorMsg && <Card Message={errorMsg} classnames="bg-red-100 text-red-400 border-red-300" iconColor="red" />}
                 {successMsg && <Card Message={successMsg} classnames="bg-green-100 text-green-400 border-green-300" iconColor="green" />}
                 <div className="w-1/2 mx-auto text-center mt-10"><Image src={medicalRecord} width={100}
                     height={100} layout="intrinsic" alt="Picture of the medical record" /></div>
-                <div className="mt-10 w-full h-full lg:h-3/5 lg:bg-gray-200 rounded-lg mx-auto text-center">
-                    <form className="max-w-full grid lg:mt-20 justify-items-stretch w-3/4 mx-auto text-center" onSubmit={handleForm}>
+                <div className="mt-5 lg:mt-0 w-full h-full lg:h-3/5 rounded-lg mx-auto text-center">
+                    <form className="max-w-full grid lg:mt-10 justify-items-stretch w-3/4 mx-auto text-center" onSubmit={handleForm}>
 
                         <input type="text" className="py-2 pl-5 mt-4 lg:py-5 rounded border lg:border-0" placeholder="Nom d'utilisateur" value={username} onChange={(e) => setUsername(e.target.value)} />
                         <input type="text" className="py-2 mt-4 pl-5 lg:py-5 rounded border lg:border-0" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <input type="password" className="py-2 mt-4 pl-5 lg:py-5 rounded border lg:border-0" placeholder="Mot de passe" value={password} onChange={(e) => setPassword(e.target.value)} />
                         <input type="password" className="py-2 mt-4 pl-5 lg:py-5 rounded border lg:border-0" placeholder="Confirmez votre mot de passe" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} />
 
-                        <button className="text-sm md:text-base lg:text-base mt-4 font-medium text-blue-500 justify-self-end">Avez vous déjà un compte ?</button>
+                        <Link href="/login"><a className="flex justify-self-end no-underline"><button className="text-sm lg:text-base mt-4 font-medium text-blue-500 justify-self-end">Avez vous déjà un compte ?</button></a></Link>
 
                         <input className="min-w-full lg:px-28 py-2 lg:py-5 rounded bg-blue-500 mt-14 font-bold text-white cursor-pointer" type="submit" value="S'inscrire" />
                     </form>
                 </div>
             </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
 
     </>);
 }

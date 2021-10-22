@@ -99,8 +99,8 @@ const Home = () => {
                     </div>
 
                     <div className="flex lg:hidden gap-2 mx-auto mr-auto mt-10">
-                        <div className="bg-green-300 w-16 h-16 rounded-full text-center"><FontAwesomeIcon icon={faPlus} color="white" size="lg" className="mt-5 cursor-pointer" onClick={addPatient} /></div>
-                        <div className="bg-blue-500 w-16 h-16 rounded-full text-center"><FontAwesomeIcon icon={faCalendar} color="white" size="lg" className="mt-5 cursor-pointer" onClick={setAppointment}/></div>
+                        <div className="bg-green-300 w-14 h-14 rounded-full text-center"><FontAwesomeIcon icon={faPlus} color="white" size="lg" className="mt-3.5 cursor-pointer" onClick={addPatient} /></div>
+                        <div className="bg-blue-500 w-14 h-14 rounded-full text-center"><FontAwesomeIcon icon={faCalendar} color="white" size="lg" className="mt-3.5 cursor-pointer" onClick={setAppointment}/></div>
                     </div>
 
                 </div>
