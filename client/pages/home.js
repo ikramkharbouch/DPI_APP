@@ -7,6 +7,7 @@ import withAuth from './auth/withAuth'
 import Calendar from '../components/Calendar'
 import { useRouter } from 'next/router'
 import NavBar from '../components/NavBar'
+import PatientCard from '../components/patientCard'
 
 const Home = () => {
 
@@ -16,6 +17,9 @@ const Home = () => {
     const [hiddenModal, setHiddenModal] = useState("hidden")
     const [hiddenCalendar, setHiddenCalendar] = useState("hidden")
     const [hiddenMenu, sethiddenMenu] = useState("hidden")
+
+    const [patientData, setPatientData] = useState({})
+    const [searched, setSearched] = useState('')
 
     const addPatient = () => {
         if (hiddenModal === "hidden")
@@ -46,7 +50,7 @@ const Home = () => {
             setHiddenCalendar("hidden")
         else if (hiddenCalendar === "hidden")
             setHiddenCalendar("block")
-        
+
     }
 
     const showMenu = () => {
@@ -75,6 +79,25 @@ const Home = () => {
 
     }
 
+    const submitSearch = async (e) => {
+        setSearched(searched.trim())
+        e.preventDefault()
+
+        console.log(searched)
+
+        const res = await fetch('http://localhost:8000/patient/' + searched, {
+            method: 'GET',
+            credentials: 'include'
+        })
+
+        const formattedRes = await res.json()
+
+        console.log(formattedRes)
+
+        setPatientData(formattedRes)
+
+    }
+
     return (<>
         <div className="h-screen mx-auto text-center relative">
             {/* <LoggedinMenu showMenu={showMenu} Logout={Logout}/> */}
@@ -88,11 +111,11 @@ const Home = () => {
             <Calendar classnames={hiddenCalendar} closeCalendar={closeCalendar} />
             <div className="w-5/6 lg:w-11/12 h-screen lg:h-3/4 bg-white mx-auto flex flex-wrap flex-col mt-4 lg:mt-20 rounded-lg items-center lg:px-32 gap">
                 <div className="pt-10 w-11/12 flex flex-wrap mx-auto text-center items-center">
-                    <form className="w-full ml-0">
-                        <input type="text" placeholder="search" className="border w-5/6 lg:px-20 py-4 rounded-lg pl-4" />
+                    <form className="w-full ml-0" onSubmit={submitSearch}>
+                        <input type="text" placeholder="search" className="border w-5/6 lg:px-20 py-4 rounded-lg pl-4" value={searched} onChange={e => setSearched(e.target.value)} />
                         <FontAwesomeIcon icon={faSearch} color="gray" size="lg" className="relative right-16 md:right-24 lg:right-20 lg:mr-10 mt-5" />
                     </form>
-                    
+
                     <div className="hidden lg:flex mx-auto w-1/3 gap-4 mt-10">
                         <button className="px-4 py-2 lg:px-7 lg:py-2 rounded bg-green-300 text-white font-bold mx-auto" onClick={addPatient}>Add Patient</button>
                         <button className="px-4 py-2 lg:px-7 lg:py-2 rounded bg-blue-500 text-white font-bold mx-auto" onClick={setAppointment}>Set Appointment</button>
@@ -100,11 +123,14 @@ const Home = () => {
 
                     <div className="flex lg:hidden gap-2 mx-auto mr-auto mt-10">
                         <div className="bg-green-300 w-14 h-14 rounded-full text-center"><FontAwesomeIcon icon={faPlus} color="white" size="lg" className="mt-3.5 cursor-pointer" onClick={addPatient} /></div>
-                        <div className="bg-blue-500 w-14 h-14 rounded-full text-center"><FontAwesomeIcon icon={faCalendar} color="white" size="lg" className="mt-3.5 cursor-pointer" onClick={setAppointment}/></div>
+                        <div className="bg-blue-500 w-14 h-14 rounded-full text-center"><FontAwesomeIcon icon={faCalendar} color="white" size="lg" className="mt-3.5 cursor-pointer" onClick={setAppointment} /></div>
                     </div>
-
+                </div>
+                <div className="flex gap-10 flex-wrap w-4/5">
+                    {patientData && <PatientCard patientData={patientData}/>}
                 </div>
             </div>
+
         </div>
 
     </>);
