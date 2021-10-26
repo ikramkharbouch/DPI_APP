@@ -5,6 +5,8 @@ import Card from './Card'
 
 const Calendar = ({ classnames, closeCalendar }) => {
 
+    const [ipp, setIPP] = useState("")
+    const [sojournNb, setSojournNb] = useState("")
     const [patientName, setPatientName] = useState("")
     const [title, setTitle] = useState("")
     const [day, setDay] = useState("")
@@ -19,6 +21,21 @@ const Calendar = ({ classnames, closeCalendar }) => {
         setTitle("")
         setDay("")
         setTiming("")
+    }
+
+    const handleName = async (e) => {
+        setPatientName(e.target.value)
+
+        // now auto fill based on the name
+
+        // fetch the api and get the ipp et le numero de sejour
+
+        // const url = 'http://localhost:7000/v1/patient/' + patientName
+        const res = await fetch('http://localhost:7000/v1/patients/' + patientName)
+
+        const formattedRes = await res.json()
+
+        console.log(formattedRes)
     }
 
     const SubmitHandler = async (e) => {
@@ -67,17 +84,17 @@ const Calendar = ({ classnames, closeCalendar }) => {
             <div className="mx-auto text-center w-full">
                 <form className="flex flex-col flex-wrap mx-auto w-full" onSubmit={SubmitHandler}>
                     <div className="px-10 flex flex-col gap-6 lg:gap-10 mx-auto pt-10 w-full" >
-                    <div className="w-full ">
+                        <div className="w-full ">
                             <label className="text-xs text-blue-500 absolute font-bold">Identifiant Patient Permanent</label>
-                            <input type="text" placeholder="Identifiant Patient Permanent" className="pl-3 py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={patientName} onChange={(e) => setPatientName(e.target.value)} required />
+                            <input type="text" placeholder="Identifiant Patient Permanent" className="pl-3 py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={ipp} onChange={(e) => setIPP(e.target.value)} required />
                         </div>
                         <div className="w-full ">
                             <label className="text-xs text-blue-500 absolute font-bold">Numéro de séjour</label>
-                            <input type="text" placeholder="Numéro de séjour" className="pl-3 py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={patientName} onChange={(e) => setPatientName(e.target.value)} required />
+                            <input type="text" placeholder="Numéro de séjour" className="pl-3 py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={sojournNb} onChange={(e) => setSojournNb(e.target.value)} required />
                         </div>
                         <div className="w-full ">
                             <label className="text-xs text-blue-500 absolute font-bold">Le nom du patient</label>
-                            <input type="text" placeholder="Some random title" className="pl-3 py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={patientName} onChange={(e) => setPatientName(e.target.value)} required />
+                            <input type="text" placeholder="Some random title" className="pl-3 py-2 mt-4 lg:py-5 rounded border text-sm w-full md:w-2/3 lg:w-2/3" value={patientName} onChange={handleName} required />
                         </div>
                         <div className="w-full ">
                             <label className="text-xs text-blue-500 absolute font-bold">Type du rendez-vous</label>

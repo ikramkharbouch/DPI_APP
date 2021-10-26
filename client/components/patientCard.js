@@ -13,12 +13,12 @@ const patientCard = ({patientData}) => {
         <Element label="Prénom" data={patientData.firstName}/>
         <Element label="Nom" data={patientData.lastName}/>
         <Element label="Nationalité" data={patientData.nationality}/>
-        <Element label="Date de naissance" data={patientData.birthDate.substring(0, 10)}/>
+        <Element label="Date de naissance" data={patientData.birthDate ? patientData.birthDate.substring(0, 10) : ''}/>
         <Element label="Statut" data={patientData.maritalStatus}/>
         <Element label="Numéro" data={patientData.nationality}/>
         <Element label="Type Sanguin" data={patientData.bloodType}/>
         <Element label="Vacciné" data={patientData.vaccinated  ? 'Oui' : 'Non'}/>
-        <Element label="Date de vaccination" data={patientData.vaccinationDate.substring(0, 10)}/>
+        <Element label="Date de vaccination" data={patientData.vaccinationDate ? patientData.vaccinationDate.substring(0, 10): ''}/>
     
     </> );
 }
