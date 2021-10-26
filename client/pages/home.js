@@ -18,7 +18,7 @@ const Home = () => {
     const [hiddenCalendar, setHiddenCalendar] = useState("hidden")
     const [hiddenMenu, sethiddenMenu] = useState("hidden")
 
-    const [patientData, setPatientData] = useState({})
+    const [patientData, setPatientData] = useState(null)
     const [searched, setSearched] = useState('')
 
     const addPatient = () => {
@@ -127,7 +127,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="flex gap-10 flex-wrap w-4/5">
-                    {patientData && <PatientCard patientData={patientData}/>}
+                    {patientData !== null && <PatientCard patientData={patientData}/>}
                 </div>
             </div>
 
