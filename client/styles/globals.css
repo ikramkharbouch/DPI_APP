@@ -1,0 +1,126 @@
+/* ./styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+body {
+  background-color: #EDF2F7;
+}
+
+html,
+body,
+body > div:first-child,
+div#__next,
+div#__next > div {
+  height: 80vw;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input::placeholder {
+  position: absolute;
+  left: 0;
+  margin-left: 20px;
+}
+
+.gap {
+  gap: 5rem;
+}
+
+input[type="date"] {
+  color: #999;
+  padding-left: 20px;
+}
+
+#phone-number::placeholder {
+  margin-left: 80px;
+}
+
+input[type="number"]::placeholder {
+  color: #999;
+  padding-left: 60px;
+}
+
+select {
+  color: #999;
+  padding-left: 20px;
+}
+
+.phone-number {
+  padding-left: 70px;
+}
+
+.max-height {
+  height: 20rem;
+  margin-bottom: 5px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  input::placeholder {
+    font-size: 15px;
+    margin-top: 3px;
+  }
+}
+
+
+@media only screen and (min-width: 2500px) {
+  .first-image {
+    height: 100%;
+  }
+
+  .first-section {
+    max-height: 30%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .first-section {
+    min-height: 80%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .medium-screen {
+    min-height: 80%;
+  }
+  .wrap {
+    flex-wrap: wrap;
+  }
+}
+
+/* Mobile version */
+
+@media only screen and (max-width: 425px) {
+
+  .first-section {
+    min-height: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .second-section {
+    min-height: 16rem;
+  }
+
+  .third-section {
+    min-height: 100%;
+  }
+
+  /* .fourth-section {
+    height: 20rem;
+  } */
+  
+  .medium-screen {
+    min-height: 80%;
+  }
+}
